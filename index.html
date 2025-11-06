@@ -130,11 +130,11 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
       border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 32px;
-      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(.4,1.8,.6,1), -webkit-transform 0.3s cubic-bezier(.4,1.8,.6,1);
     }
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
     }
     .light .card {
       background: rgba(255, 255, 255, 0.65);
@@ -164,7 +164,13 @@
       margin-right: 6px;
       margin-bottom: 6px;
     }
-    .proj { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-left: 40px; margin-right: 40px; }
+    .proj {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      justify-content: center;
+      /* margin handled inline for section alignment */
+    }
     section { margin-left: 40px; margin-right: 40px; }
     footer {
       margin-top: 40px;
@@ -368,81 +374,89 @@
       </div>
     </section>
 
-    <section id="certifications" class="section" style="margin-top:60px;">
-      <h2>Certifications & Achievements</h2>
+    <!-- Certifications Section -->
+    <section id="certifications" class="section" style="margin-top:80px; text-align:center;">
+      <h2>Certifications</h2>
+      <p style="color:var(--muted); margin-bottom:40px;">Industry-recognized credentials demonstrating multi-cloud expertise and automation proficiency.</p>
 
-      <div class="proj" style="margin-top:24px;">
-        <!-- Azure Certification Card -->
+      <div class="proj" style="gap:32px; justify-content:center; max-width:1000px; margin:0 auto;">
         <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Microsoft Azure Logo" style="width:64px; height:64px; margin-bottom:10px; max-width:100%; height:auto;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Microsoft Azure Logo" style="width:64px; height:64px; margin-bottom:12px;">
+          <div><span class="badge">Certified · 2025</span></div>
           <h3>Microsoft Certified: Azure Administrator Associate</h3>
-          <p style="color:var(--muted); margin-top:8px;">Skilled in managing hybrid cloud environments, governance, and infrastructure automation using Azure services.</p>
+          <p style="color:var(--muted); margin-top:8px;">Hybrid cloud administration, governance, and automation expertise on Azure.</p>
         </article>
 
-        <!-- Google Cloud Architect -->
         <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:10px; max-width:100%; height:auto;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
+          <div><span class="badge">Certified · 2025</span></div>
           <h3>Google Cloud Professional Cloud Architect</h3>
-          <p style="color:var(--muted); margin-top:8px;">Designed and managed secure, scalable architectures on Google Cloud Platform.</p>
+          <p style="color:var(--muted); margin-top:8px;">Designed secure, scalable architectures across global GCP infrastructure.</p>
         </article>
 
-        <!-- Google Cloud Data Engineer -->
         <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:10px; max-width:100%; height:auto;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
+          <div><span class="badge">Certified · 2025</span></div>
           <h3>Google Cloud Professional Data Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Built and optimized data pipelines for large-scale analytical workloads.</p>
+          <p style="color:var(--muted); margin-top:8px;">Built and optimized large-scale pipelines for analytical workloads.</p>
         </article>
 
-        <!-- Google Cloud ML Engineer -->
         <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:10px; max-width:100%; height:auto;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
+          <div><span class="badge">Certified · 2025</span></div>
           <h3>Google Cloud Professional ML Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Developed and deployed machine learning models on GCP infrastructure.</p>
+          <p style="color:var(--muted); margin-top:8px;">Developed and deployed ML models leveraging GCP infrastructure.</p>
         </article>
 
-        <!-- Google Cloud Database Engineer -->
         <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:10px; max-width:100%; height:auto;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
+          <div><span class="badge">Certified · 2025</span></div>
           <h3>Google Cloud Professional Database Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Specialized in designing and maintaining high-performance GCP databases.</p>
+          <p style="color:var(--muted); margin-top:8px;">Designed and maintained high-performance GCP database systems.</p>
         </article>
 
-        <!-- Google Cloud Associate Engineer -->
         <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:10px; max-width:100%; height:auto;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
+          <div><span class="badge">Certified · 2025</span></div>
           <h3>Google Cloud Associate Cloud Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Deployed, monitored, and secured cloud applications and resources on GCP.</p>
-        </article>
-      </div>
-
-      <h2 style="margin-top:60px;">Achievements</h2>
-      <div class="proj" style="margin-top:16px;">
-        <article class="card">
-          <h3>🏆 2nd Prize – CU Project Expo (2023)</h3>
-          <p style="color:var(--muted); margin-top:8px;">Awarded for <em>MAZE VR</em> — an immersive VR puzzle game created using Unreal Engine and Blueprint scripting.</p>
-        </article>
-
-        <article class="card">
-          <h3>💡 Infra Cost Guard</h3>
-          <p style="color:var(--muted); margin-top:8px;">Developed an automation toolkit to identify idle cloud resources and generate cost-optimization reports for AWS.</p>
-        </article>
-
-        <article class="card">
-          <h3>📊 Finance Web App</h3>
-          <p style="color:var(--muted); margin-top:8px;">Built a Firebase + Upstox API-based app for secure login and real-time stock tracking.</p>
-        </article>
-
-        <article class="card">
-          <h3>💼 Accenture</h3>
-          <p style="color:var(--muted); margin-top:8px;">Currently serving as an Associate Software Engineer, managing Linux-based systems and automations.</p>
+          <p style="color:var(--muted); margin-top:8px;">Deployed, monitored, and secured workloads across Google Cloud.</p>
         </article>
       </div>
     </section>
 
-    <section id="contact" class="section" style="margin-top:60px;">
+    <!-- Achievements Section -->
+    <section id="achievements" class="section" style="margin-top:100px; text-align:center;">
+      <h2>Achievements</h2>
+      <p style="color:var(--muted); margin-bottom:40px;">Milestones that reflect innovation, precision, and execution across projects.</p>
+
+      <div class="proj" style="gap:32px; justify-content:center; max-width:1000px; margin:0 auto;">
+        <article class="card" style="text-align:center;">
+          <h3>🏆 2nd Prize – CU Project Expo (2023)</h3>
+          <p style="color:var(--muted); margin-top:8px;">Awarded for <em>MAZE VR</em> — an immersive VR puzzle game built in Unreal Engine.</p>
+        </article>
+
+        <article class="card" style="text-align:center;">
+          <h3>💡 Infra Cost Guard</h3>
+          <p style="color:var(--muted); margin-top:8px;">Developed a toolkit to identify idle resources and automate cost reporting.</p>
+        </article>
+
+        <article class="card" style="text-align:center;">
+          <h3>📊 Finance Web App</h3>
+          <p style="color:var(--muted); margin-top:8px;">Built Firebase + Upstox API app for secure login and real-time stock tracking.</p>
+        </article>
+
+        <article class="card" style="text-align:center;">
+          <h3>💼 Accenture</h3>
+          <p style="color:var(--muted); margin-top:8px;">Currently serving as Associate Software Engineer managing Linux systems & automation.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="margin-top:100px; text-align:center;">
       <h2>Contact</h2>
-      <p class="lead">Email or DM me on LinkedIn for real work only.</p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <p class="lead">Let’s connect for collaboration, innovation, or meaningful opportunities.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:20px;">
         <a class="btn" href="mailto:dmtoswapnil@gmail.com">✉️ Email</a>
         <a class="btn" href="https://github.com/decodeswapnil" target="_blank">🐙 GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/dmtoswapnil" target="_blank">in LinkedIn</a>
