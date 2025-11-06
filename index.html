@@ -169,7 +169,47 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 32px;
       justify-content: center;
+      align-items: stretch;
       /* margin handled inline for section alignment */
+    }
+    /* Education Card Styles */
+    #education .proj {
+      gap: 32px;
+      justify-content: center;
+      align-items: stretch;
+    }
+    #education .card {
+      text-align: center !important;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 36px 28px 32px 28px;
+      box-sizing: border-box;
+      height: 100%;
+    }
+    #education .card .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      margin-right: 0;
+      font-size: 14px;
+    }
+    #education .card h3 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      letter-spacing: 0.04em;
+    }
+    #education .card p {
+      font-size: 1.01rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.35;
+      letter-spacing: 0.05em;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
     section { margin-left: 40px; margin-right: 40px; }
     footer {
@@ -267,7 +307,7 @@
       <img src="profile.jpg" alt="Professional headshot of Swapnil Kumar wearing formal attire with a confident smile against a neutral background" style="width:48px; height:48px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,0.2); padding:2px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
       <div>
         <strong>Swapnil Kumar</strong><br/>
-        <span style="color:var(--muted)">Linux Admin · Builder · AR/VR BCA</span>
+        <span style="color:var(--muted)">Linux Administrator · Cloud & Automation Engineer</span>
       </div>
       </div>
       <nav>
@@ -309,7 +349,7 @@
     </section>
 
     <section id="projects" class="section">
-      <h2 style="margin-top:60px;">Selected Projects</h2>
+      <h2 style="margin-top:60px; margin-bottom:32px;">Selected Projects</h2>
       <div class="proj">
         <article class="card">
           <span class="badge">2025</span>
@@ -358,6 +398,44 @@
       </div>
     </section>
 
+    <section id="education" class="section" style="margin-top:60px;">
+      <h2 style="margin-bottom:32px;">Education</h2>
+      <div class="proj" style="gap:32px; justify-content:center; max-width:1000px; margin:0 auto; align-items:stretch;">
+        <article class="card">
+          <span class="badge">2025</span>
+          <h3>IIT Mandi</h3>
+          <p>
+            Minor in AI &amp; ML
+            <span>CGPA 8.1</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="badge">2024</span>
+          <h3>Chandigarh University</h3>
+          <p>
+            BCA (AR/VR)
+            <span>CGPA 8.11</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="badge">2020</span>
+          <h3>Chauhan Public School</h3>
+          <p>
+            Class XII, PCM
+            <span>81%</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="badge">2018</span>
+          <h3>Mount Assisi School</h3>
+          <p>
+            Class X
+            <span>91%</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
     <section id="skills" class="section" style="margin-top:40px;">
       <h2>Skills</h2>
       <div>
@@ -376,57 +454,64 @@
 
     <!-- Certifications Section -->
     <section id="certifications" class="section" style="margin-top:80px; text-align:center;">
-      <h2>Certifications</h2>
+      <h2 style="margin-bottom:32px;">Certifications</h2>
       <p style="color:var(--muted); margin-bottom:40px;">Industry-recognized credentials demonstrating multi-cloud expertise and automation proficiency.</p>
 
-      <div class="proj" style="gap:32px; justify-content:center; max-width:1000px; margin:0 auto;">
-        <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Microsoft Azure Logo" style="width:64px; height:64px; margin-bottom:12px;">
-          <div><span class="badge">Certified · 2025</span></div>
-          <h3>Microsoft Certified: Azure Administrator Associate</h3>
-          <p style="color:var(--muted); margin-top:8px;">Hybrid cloud administration, governance, and automation expertise on Azure.</p>
+      <div class="proj" style="gap:32px; justify-content:center; align-items:stretch; max-width:1000px; margin:0 auto;">
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarSwapnil-1073/B1CA839040334063?sharingId" target="_blank" style="display:block;">
+            <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Microsoft Azure Administrator Associate Badge" style="width:110px; height:110px; margin-bottom:12px;">
+          </a>
+          <div style="margin-bottom:8px;"><span class="badge">Issued · Sep 2025</span></div>
+          <h3 style="margin-bottom:12px;">Microsoft Certified: Azure Administrator Associate</h3>
+          <a class="btn" href="https://learn.microsoft.com/api/credentials/share/en-us/KumarSwapnil-1073/B1CA839040334063?sharingId" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
         </article>
-
-        <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
-          <div><span class="badge">Certified · 2025</span></div>
-          <h3>Google Cloud Professional Cloud Architect</h3>
-          <p style="color:var(--muted); margin-top:8px;">Designed secure, scalable architectures across global GCP infrastructure.</p>
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <a href="https://www.credly.com/badges/2941dcb8-95c4-4868-a0a3-670ca03fdd52" target="_blank" style="display:block;">
+            <img src="https://images.credly.com/size/340x340/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Associate Cloud Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
+          </a>
+          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
+          <h3 style="margin-bottom:12px;">Google Cloud Associate Cloud Engineer</h3>
+          <a class="btn" href="https://www.credly.com/badges/2941dcb8-95c4-4868-a0a3-670ca03fdd52" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
         </article>
-
-        <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
-          <div><span class="badge">Certified · 2025</span></div>
-          <h3>Google Cloud Professional Data Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Built and optimized large-scale pipelines for analytical workloads.</p>
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <a href="https://www.credly.com/badges/81ae408c-fff1-486e-a906-86aa20a2dd35" target="_blank" style="display:block;">
+            <img src="https://images.credly.com/size/340x340/images/71c579e0-51fd-4247-b493-d2fa8167157a/image.png" alt="Google Cloud Professional Cloud Architect Badge" style="width:110px; height:110px; margin-bottom:12px;">
+          </a>
+          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
+          <h3 style="margin-bottom:12px;">Google Cloud Professional Cloud Architect</h3>
+          <a class="btn" href="https://www.credly.com/badges/81ae408c-fff1-486e-a906-86aa20a2dd35" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
         </article>
-
-        <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
-          <div><span class="badge">Certified · 2025</span></div>
-          <h3>Google Cloud Professional ML Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Developed and deployed ML models leveraging GCP infrastructure.</p>
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <a href="https://www.credly.com/badges/bf871835-e24b-4285-9106-cae5f0439741" target="_blank" style="display:block;">
+            <img src="https://images.credly.com/size/340x340/images/275e69a5-33a8-4d9c-bad4-2bdc0dfb7d40/image.png" alt="Google Cloud Professional Database Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
+          </a>
+          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
+          <h3 style="margin-bottom:12px;">Google Cloud Professional Database Engineer</h3>
+          <a class="btn" href="https://www.credly.com/badges/bf871835-e24b-4285-9106-cae5f0439741" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
         </article>
-
-        <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
-          <div><span class="badge">Certified · 2025</span></div>
-          <h3>Google Cloud Professional Database Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Designed and maintained high-performance GCP database systems.</p>
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <a href="https://www.credly.com/badges/7e303fc0-d172-4caa-a47f-56d23e74a0f0" target="_blank" style="display:block;">
+            <img src="https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png" alt="Google Cloud Professional Data Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
+          </a>
+          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
+          <h3 style="margin-bottom:12px;">Google Cloud Professional Data Engineer</h3>
+          <a class="btn" href="https://www.credly.com/badges/7e303fc0-d172-4caa-a47f-56d23e74a0f0" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
         </article>
-
-        <article class="card" style="text-align:center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud Logo" style="width:64px; height:64px; margin-bottom:12px;">
-          <div><span class="badge">Certified · 2025</span></div>
-          <h3>Google Cloud Associate Cloud Engineer</h3>
-          <p style="color:var(--muted); margin-top:8px;">Deployed, monitored, and secured workloads across Google Cloud.</p>
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <a href="https://www.credly.com/badges/c87fb4f5-aba6-48b0-9918-d4d8ef0a11fa" target="_blank" style="display:block;">
+            <img src="https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png" alt="Google Cloud Professional Machine Learning Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
+          </a>
+          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
+          <h3 style="margin-bottom:12px;">Google Cloud Professional Machine Learning Engineer</h3>
+          <a class="btn" href="https://www.credly.com/badges/c87fb4f5-aba6-48b0-9918-d4d8ef0a11fa" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
         </article>
       </div>
     </section>
 
     <!-- Achievements Section -->
     <section id="achievements" class="section" style="margin-top:100px; text-align:center;">
-      <h2>Achievements</h2>
+      <h2 style="margin-bottom:32px;">Achievements</h2>
       <p style="color:var(--muted); margin-bottom:40px;">Milestones that reflect innovation, precision, and execution across projects.</p>
 
       <div class="proj" style="gap:32px; justify-content:center; max-width:1000px; margin:0 auto;">
