@@ -48,6 +48,11 @@
       padding: 0; 
       transition: all 0.25s ease;
     }
+    html {
+      scroll-behavior: smooth;
+      scroll-timeline: smooth;
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
     body {
       font-family: "Inter", system-ui, -apple-system, sans-serif;
       background: radial-gradient(circle at 30% -20%, rgba(34,211,238,0.04), transparent 70%), radial-gradient(circle at 90% 10%, rgba(167,139,250,0.04), transparent 70%), var(--bg);
@@ -212,6 +217,17 @@
       gap: 4px;
     }
     section { margin-left: 40px; margin-right: 40px; }
+    /* Ensure scroll-to-section leaves space for sticky header */
+    section.section,
+    #projects,
+    #experience,
+    #skills,
+    #education,
+    #certifications,
+    #achievements,
+    #contact {
+      scroll-margin-top: 100px;
+    }
     footer {
       margin-top: 40px;
       color: var(--muted);
@@ -221,7 +237,194 @@
       font-size: 14px;
     }
     @media (max-width: 850px) {
-      .hero { grid-template-columns: 1fr; }
+      .wrap {
+        padding: 20px 8px 60px;
+      }
+      header {
+        padding: 10px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        max-width: 100vw;
+      }
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 0;
+        margin-top: 4px;
+        font-size: 15px;
+        justify-content: flex-end;
+      }
+      nav a, nav .btn {
+        margin-left: 10px;
+        margin-right: 0;
+        margin-bottom: 6px;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 6px;
+        gap: 18px;
+      }
+      .hero .card,
+      .proj .card,
+      .card {
+        width: 100%;
+        min-width: 0;
+        padding: 20px 12px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      h1, h2, h3, .lead, section h2 {
+        text-align: center !important;
+      }
+      section {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .proj {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .badge {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 6px auto;
+        text-align: center;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .photo-modal img {
+        width: min(90vw, 360px);
+        height: min(90vw, 360px);
+        aspect-ratio: 1/1;
+        max-width: 96vw;
+        max-height: 96vw;
+      }
+      #education .proj,
+      #certifications .proj,
+      #achievements .proj {
+        gap: 20px !important;
+      }
+      #education .card,
+      #certifications .card,
+      #achievements .card {
+        padding: 18px 10px 18px 10px !important;
+        min-height: unset;
+      }
+      #education .card .badge {
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+      footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+      }
+      /* Add vertical spacing between sections for mobile readability */
+      section.section {
+        margin-top: 36px !important;
+        margin-bottom: 36px !important;
+      }
+      #education.section {
+        margin-top: 36px !important;
+      }
+      #certifications.section,
+      #achievements.section,
+      #contact.section {
+        margin-top: 36px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        padding: 12px 2vw 30px 2vw;
+      }
+      header {
+        padding: 6px 2vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        max-width: 100vw;
+      }
+      nav {
+        font-size: 14px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 4px 0;
+        width: 100%;
+      }
+      nav a, nav .btn {
+        margin-left: 8px;
+        margin-bottom: 5px;
+      }
+      .brand {
+        gap: 10px;
+      }
+      .logo,
+      header .brand img {
+        width: 38px !important;
+        height: 38px !important;
+        border-radius: 10px !important;
+      }
+      .hero {
+        padding: 0 2vw;
+        margin-left: 0;
+        margin-right: 0;
+        gap: 12px;
+      }
+      .hero .card,
+      .proj .card,
+      .card {
+        padding: 12px 6px;
+        font-size: 0.97rem;
+      }
+      h1 {
+        font-size: 1.65rem;
+      }
+      h2 {
+        font-size: 1.18rem;
+      }
+      h3 {
+        font-size: 1.05rem;
+      }
+      .badge {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+      .btn {
+        font-size: 0.98rem;
+        padding: 8px 8px;
+        margin-bottom: 6px;
+      }
+      .photo-modal img {
+        width: min(94vw, 320px);
+        height: min(94vw, 320px);
+        aspect-ratio: 1/1;
+      }
+      section.section {
+        margin-top: 28px !important;
+        margin-bottom: 28px !important;
+      }
+      #education.section {
+        margin-top: 28px !important;
+      }
+      #certifications.section,
+      #achievements.section,
+      #contact.section {
+        margin-top: 28px !important;
+      }
+      footer {
+        font-size: 12px;
+      }
     }
     .card, .btn { transition: all 0.3s ease-in-out; }
 
@@ -595,5 +798,6 @@
       }
     });
   </script>
+
 </body>
 </html>
