@@ -54,9 +54,12 @@ Supervised machine learning project for detecting birds in images.
 
 ## Certifications
 
-- Microsoft Certified: Azure Administrator Associate  
-- Google Cloud Associate Cloud Engineer  
-- Google Cloud Professional Machine Learning Engineer  
+- Microsoft Certified: Azure Administrator Associate (Sep 2025 – Sep 2026)
+- Google Associate Cloud Engineer (May 2025 – Jun 2028)
+- Google Cloud Professional Cloud Architect (May 2025 – May 2027)
+- Google Cloud Professional Cloud Database Engineer (May 2025 – May 2027)
+- Google Cloud Professional Data Engineer (May 2025 – May 2027)
+- Google Cloud Professional Machine Learning Engineer (May 2025 – May 2027)
 
 ---
 
