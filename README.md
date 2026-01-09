@@ -4,50 +4,51 @@ AI/ML Engineer | Full Stack Developer | Cloud & Automation Engineer
 
 ---
 
-## About Me
+## About
 
-I am a software engineer with a strong foundation in full stack development, machine learning, and cloud-based systems. Currently working at Accenture as a Linux Administrator and Cloud Automation Engineer, I focus on building reliable systems, automating workflows, and developing real-world applications.
+Software engineer with strong foundations in full stack development, machine learning, and cloud-based systems. Currently working at Accenture as a Linux Administrator and Cloud Automation Engineer, focused on building reliable systems, automating workflows, and shipping production-grade applications.
 
-I enjoy working on projects that combine data, APIs, and scalable architectures.
+Interested in problems involving data, APIs, system design, security, and performance-oriented engineering.
 
 ---
 
-## Core Skills
+## Skills
 
 - **Programming:** Python, JavaScript  
 - **Frontend:** HTML, CSS, React  
 - **Backend:** Node.js, Express, REST APIs  
 - **Databases:** Firebase Firestore, SQL, NoSQL  
 - **Machine Learning:** Data preprocessing, supervised learning, model evaluation  
-- **Cloud:** AWS, Google Cloud Platform, Azure  
+- **Cloud:** AWS, Google Cloud Platform (GCP), Azure  
 - **DevOps & Tools:** Linux, Git, GitHub Actions, CI/CD  
 
 ---
 
-## Featured Projects
+## Projects
 
 ### Finance & Stock Tracking Web Application
-A full-stack web application for tracking stocks and managing personalized watchlists.
+Full-stack web application for tracking real-time stock data and managing personalized watchlists.
 
-**Tech Stack:** JavaScript, Firebase, Financial Modeling Prep (FMP) API  
-**Features:**
-- Secure authentication
-- Real-time stock data
-- Cloud-based data storage
-- API integration and validation
+**Stack:** JavaScript, Firebase, Financial Modeling Prep (FMP) API, Cloudflare Workers  
+**Highlights:**
+- Secure authentication with Firebase Authentication  
+- Real-time market data via FMP API  
+- Cloudflare Worker proxy to protect API keys and prevent direct client exposure  
+- Cloud-based portfolio and watchlist storage  
+- Robust API handling and validation  
 
-Live Demo: https://finzo.pages.dev/
+**Live:** https://finzo.pages.dev/
 
 ---
 
 ### Bird Detection Model (IIT Mandi)
-A supervised machine learning project focused on detecting birds in images.
+Supervised machine learning project for detecting birds in images.
 
-**Tech Stack:** Python, Computer Vision, Machine Learning  
+**Stack:** Python, Computer Vision, Machine Learning  
 **Highlights:**
-- Data preprocessing and labeling
-- Model training and evaluation
-- Performance analysis
+- Image data preprocessing and labeling  
+- Model training and evaluation  
+- Performance analysis and iterative tuning  
 
 ---
 
@@ -64,13 +65,14 @@ A supervised machine learning project focused on detecting birds in images.
 **Linux Administrator & Cloud Automation Engineer**  
 Accenture (Sep 2024 – Present)
 
-- Automating workflows using Python and Bash  
-- Supporting Linux-based production systems  
-- Working with AWS, Azure, and GCP environments  
+- Automated workflows using Python and Bash  
+- Supported Linux-based production systems  
+- Worked with AWS, Azure, and GCP environments  
+- Improved reliability through monitoring and troubleshooting  
 
 ---
 
-## Connect With Me
+## Contact
 
 - LinkedIn: https://linkedin.com/in/dmtoswapnil  
 - Portfolio: https://decodeswapnil.github.io  
@@ -79,4 +81,4 @@ Accenture (Sep 2024 – Present)
 
 ---
 
-> This profile highlights my learning journey, projects, and practical experience. I am actively seeking opportunities in AI/ML engineering and full stack development.
+> Building production-ready systems with a focus on security, scalability, and clean engineering. Actively seeking roles in AI/ML engineering and full stack development.
