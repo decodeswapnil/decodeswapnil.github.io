@@ -426,13 +426,7 @@
       0% { transform: translateY(0) scale(1); opacity: 1; }
       100% { transform: translateY(-20px) scale(0.9); opacity: 0; }
     }
-
-    /* Hide mobile-only controls on desktop */
-    .mobile-controls,
-    .mc-backdrop,
-    .mc-sheet {
-      display: none;
-    }
+  
 
 .mobile-ui {
   display: none;
@@ -442,6 +436,7 @@
   header {
     display: none;
   }
+
   .mobile-ui {
     position: fixed;
     top: 14px;
@@ -540,11 +535,11 @@
   header { display: none; }
 
   .mobile-controls {
-    display: flex;
     position: fixed;
     top: 10px;
     left: 10px;
     right: 10px;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
@@ -600,15 +595,12 @@
   }
 
   .mc-backdrop {
+    display: none;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.35);
     backdrop-filter: blur(4px);
     z-index: 998;
-  }
-
-  .mc-backdrop.open {
-    display: block;
   }
 
   .mc-sheet {
@@ -619,6 +611,7 @@
     background: var(--card);
     border-radius: 0 0 22px 22px;
     padding: 90px 24px 24px;
+    display: none;
     flex-direction: column;
     gap: 18px;
     z-index: 999;
@@ -630,6 +623,10 @@
   .mc-sheet.open {
     display: flex;
     animation: sheetIn 0.22s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+
+  .mc-backdrop.open {
+    display: block;
   }
 
   .mc-sheet a {
@@ -668,6 +665,66 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
+}
+
+
+/* === Mobile Density & Gutters Fix === */
+@media (max-width: 850px) {
+  body {
+    font-size: 14px;
+  }
+
+  .wrap {
+    padding: 16px 16px 56px !important;
+  }
+
+  section {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .card {
+    padding: 14px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  h1 {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+  }
+
+  p, li, span {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  .btn {
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .badge {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+
+  .proj {
+    gap: 16px !important;
+  }
+
+  footer {
+    font-size: 12px !important;
+  }
 }
 
 </style>
