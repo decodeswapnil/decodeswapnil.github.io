@@ -4,1090 +4,345 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Swapnil Kumar · Portfolio</title>
-
-  <meta name="description" content="Portfolio of Swapnil Kumar (decodeswapnil): Linux Administrator, Automation Builder, and AR/VR BCA graduate." />
+  <meta name="description" content="Portfolio of Swapnil Kumar: Cloud & Automation Engineer." />
   <meta name="author" content="Swapnil Kumar" />
-  <meta property="og:title" content="Swapnil Kumar · Portfolio" />
-  <meta property="og:description" content="IT/Linux admin · AR/VR BCA · Projects in automation, DevOps, and creative tech." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/0?v=4" />
-  <meta name="theme-color" content="#0f172a" />
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230f172a'/%3E%3Ctext x='50' y='58' font-family='monospace' font-size='46' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E"/>
-
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='50' fill='%2300A3FF'/%3E%3Ctext x='50' y='58' font-family='monospace' font-weight='800' font-size='40' text-anchor='middle' fill='%23000'%3ESK%3C/text%3E%3C/svg%3E"/>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     :root {
-      --bg: #0b0f1a;
-      --card: #0f172a;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --accent: #22d3ee;
-      --accent-2: #a78bfa;
-      --shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      --bg: #000000;
+      --card: rgba(15, 23, 42, 0.4);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #D1D5DB;
+      --heading: #FFFFFF;
+      --muted: #9CA3AF;
+      --accent: #00A3FF;
+      --shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      --glow: 0 0 20px rgba(0, 163, 255, 0.2);
     }
     :root.light {
-      --bg: #f4f6f8;
+      --bg: #f8fafc;
       --card: #ffffff;
-      --text: #111827;
-      --muted: #4b5563;
-      --accent: #2563eb;
-      --accent-2: #7c3aed;
-      --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      --card-border: rgba(0, 0, 0, 0.1);
+      --text: #334155;
+      --heading: #0f172a;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+      --glow: 0 4px 14px rgba(2, 132, 199, 0.2);
     }
-    .light .btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", system-ui, -apple-system, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    body::before { content: ""; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(circle, rgba(0, 163, 255, 0.15) 0%, transparent 70%); z-index: -1; pointer-events: none; }
+    .light body::before { background: radial-gradient(circle, rgba(0, 136, 204, 0.08) 0%, transparent 70%); }
+    h1, h2, h3, h4, strong { color: var(--heading); font-weight: 700; }
+    a { text-decoration: none; color: var(--accent); }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 24px 20px 100px; }
+    
+    header { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 24px; background: rgba(10, 10, 10, 0.5); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid var(--card-border); padding: 8px 16px; z-index: 100; border-radius: 9999px; max-width: 600px; margin: 0 auto 60px auto; }
+    .light header { background: rgba(255, 255, 255, 0.7); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo-img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--card-border); cursor: pointer; }
+    .brand strong { font-size: 14px; letter-spacing: 0.5px; color: var(--heading); display: block;}
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a { color: var(--text); font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 999px; }
+    nav a:hover { background: rgba(255, 255, 255, 0.1); color: var(--heading); }
+    .light nav a:hover { background: rgba(0, 0, 0, 0.05); }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border-radius: 8px; background: var(--heading); color: var(--bg) !important; font-weight: 600; font-size: 14px; cursor: pointer; border: none; }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--glow); background: var(--accent); color: #fff !important; }
+    .btn-outline { background: transparent; color: var(--heading) !important; border: 1px solid var(--card-border); }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(0, 163, 255, 0.05); color: var(--accent) !important; }
+
+    .hero { text-align: center; margin-bottom: 80px; animation: fadeIn 0.8s ease-out; }
+    .hero img.profile-lg { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 24px; border: 2px solid var(--accent); box-shadow: var(--glow); cursor: pointer; }
+    .hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 span { color: var(--accent); }
+    .hero .lead { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto 32px auto; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .card { background: var(--card); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 16px; border: 1px solid var(--card-border); padding: 32px; position: relative; overflow: hidden; }
+    .card:hover { border-color: rgba(0, 163, 255, 0.4); box-shadow: var(--glow); }
+    
+    section.section { margin-top: 100px; scroll-margin-top: 120px; }
+    section h2 { font-size: 28px; margin-bottom: 40px; text-align: center; }
+    section h2 span { color: var(--accent); }
+    
+    .badge { display: inline-block; width: fit-content; border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 600; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border); color: var(--text); margin-right: 6px; margin-bottom: 6px; }
+    .light .badge { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); }
+    
+    .proj { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .proj .card { display: flex; flex-direction: column; }
+    .proj .card h3 { margin-bottom: 8px; font-size: 20px; margin-top: 12px; }
+    .proj .card p { margin-bottom: 24px; color: var(--muted); font-size: 14px; flex-grow: 1; }
+    .proj .card .badge { border-color: rgba(0, 163, 255, 0.3); color: var(--accent); background: rgba(0, 163, 255, 0.08); }
+    .light .proj .card .badge { border-color: rgba(2, 132, 199, 0.3); background: rgba(2, 132, 199, 0.08); }
+    
+    .exp-container { border-left: 2px solid var(--card-border); margin-left: 12px; padding-left: 24px; text-align: left; }
+    .exp-item { position: relative; padding-bottom: 40px; }
+    .exp-item:last-child { padding-bottom: 0; }
+    .exp-item::before { content: ""; position: absolute; width: 14px; height: 14px; background: var(--bg); border: 2px solid var(--accent); border-radius: 50%; left: -32px; top: 4px; box-shadow: 0 0 10px rgba(0,163,255,0.4); }
+    .exp-item strong { display: block; font-size: 18px; margin-bottom: 4px; }
+    .exp-item .date { font-size: 14px; color: var(--accent); margin-bottom: 12px; font-weight: 600; display: inline-block; background: rgba(0,163,255,0.1); padding: 4px 10px; border-radius: 6px; }
+    .exp-item ul { color: var(--muted); padding-left: 18px; font-size: 15px; margin-top: 8px; }
+    .exp-item ul li { margin-bottom: 8px; }
+
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .skills-grid .badge { font-size: 14px; padding: 10px 16px; background: var(--card); }
+
+    .masonry { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+
+    footer { margin-top: 100px; border-top: 1px solid var(--card-border); padding-top: 32px; display: flex; justify-content: space-between; color: var(--muted); font-size: 14px; }
+
+    .photo-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 9999; justify-content: center; align-items: center; }
+    .photo-modal img { width: 360px; height: 360px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: var(--glow); }
+
+    .mobile-controls, .mc-backdrop, .mc-sheet { display: none; }
+
+    @media (max-width: 768px) {
+      header { display: none; }
+      .mobile-controls { display: flex; position: fixed; top: 16px; left: 16px; right: 16px; justify-content: space-between; align-items: center; z-index: 100; }
+      .mc-avatar { background: none; border:none; width: 40px; height: 40px;}
+      .mc-avatar img { width:100%; height:100%; border-radius:50%; border:1px solid var(--card-border); object-fit:cover; }
+      .mc-chip { background: var(--card); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; border: 1px solid var(--card-border); color: var(--text); }
+      .mc-menu-btn { background: var(--card); border: 1px solid var(--card-border); padding: 10px; border-radius: 50%; color: var(--text); background-color: rgba(15,23,42,0.8); }
+      .mc-backdrop.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 98; }
+      .mc-sheet { position: fixed; top: 80px; left: 16px; right: 16px; background: var(--bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 24px; display: none; flex-direction: column; gap: 16px; z-index: 99; animation: slideDown 0.3s forwards; }
+      .mc-sheet.open { display: flex; }
+      @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+      .mc-sheet a { padding: 12px; font-size: 16px; font-weight: 500; border-radius: 12px; color: var(--text); }
+      .mc-sheet a:hover { background: rgba(255,255,255,0.05); color: var(--accent); }
+      .hero { margin-top: 100px; }
+      .hero h1 { font-size: 32px; }
+      .wrap { padding-top: 0; }
+      
+      .mc-menu-btn span { display: block; width: 20px; height: 2px; background: currentColor; margin: 4px 0; transition: 0.3s; }
     }
-    .light .btn:hover {
-      background: var(--accent-2);
-    }
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-      transition: all 0.25s ease;
-    }
-    html {
-      scroll-behavior: smooth;
-      scroll-timeline: smooth;
-      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-    }
-    body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at 30% -20%, rgba(34,211,238,0.04), transparent 70%), radial-gradient(circle at 90% 10%, rgba(167,139,250,0.04), transparent 70%), var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      z-index: 0;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(at 30% 30%, rgba(34,211,238,0.16), transparent 60%),
-                  radial-gradient(at 70% 70%, rgba(167,139,250,0.16), transparent 60%);
-      z-index: -2;
-      transition: background 0.4s ease;
-    }
-    body.light::before {
-      background: radial-gradient(at 30% 30%, rgba(99,102,241,0.15), transparent 60%),
-                  radial-gradient(at 80% 70%, rgba(14,165,233,0.15), transparent 60%);
-    }
-    body.light {
-      background: #f8fafc;
-    }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 60px 100px; }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      padding: 16px 40px;
-      z-index: 100;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .light header {
-      background: rgba(255, 255, 255, 0.65);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      border-radius: 12px;
-    }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .logo {
-      width: 42px; height: 42px; border-radius: 12px;
-      background: linear-gradient(145deg, var(--accent), var(--accent-2));
-      display: grid; place-items: center;
-      font-weight: 800; color: #0b1020;
-      box-shadow: var(--shadow);
-    }
-    nav a {
-      margin-left: 14px;
-      text-decoration: none;
-      color: var(--text);
-      opacity: 0.8;
-    }
-    nav a:hover { opacity: 1; }
-    .btn {
-      display: inline-flex; align-items: center;
-      padding: 10px 14px; border-radius: 12px;
-      border: 1px solid rgba(226,232,240,0.2);
-      background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(15,23,42,0.8));
-      text-decoration: none; color: var(--text);
-    }
-    .btn:hover { border-color: var(--accent); }
-    .card {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 32px;
-      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(.4,1.8,.6,1), -webkit-transform 0.3s cubic-bezier(.4,1.8,.6,1);
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
-    }
-    .light .card {
-      background: rgba(255, 255, 255, 0.65);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: stretch;
-      margin-top: 40px;
-      margin-left: 60px;
-      margin-right: 60px;
-      max-width: 1100px;
-      margin-inline: auto;
-      padding: 0 40px;
-    }
-    h1 { font-size: clamp(32px, 4vw, 50px); line-height: 1.1; margin-bottom: 12px; }
-    h2 { font-size: clamp(22px, 2.8vw, 30px); margin-bottom: 10px; }
-    p.lead { color: var(--muted); margin-bottom: 16px; }
-    .badge {
-      display: inline-block;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 13px;
-      border: 1px solid rgba(226,232,240,0.15);
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
-    .proj {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      justify-content: center;
-      align-items: stretch;
-      /* margin handled inline for section alignment */
-    }
-    /* Education Card Styles */
-    #education .proj {
-      gap: 32px;
-      justify-content: center;
-      align-items: stretch;
-    }
-    #education .card {
-      text-align: center !important;
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 36px 28px 32px 28px;
-      box-sizing: border-box;
-      height: 100%;
-    }
-    #education .card .badge {
-      display: inline-block;
-      margin-bottom: 18px;
-      margin-right: 0;
-      font-size: 14px;
-    }
-    #education .card h3 {
-      font-size: 1.22rem;
-      font-weight: 700;
-      margin: 0 0 12px 0;
-      letter-spacing: 0.04em;
-    }
-    #education .card p {
-      font-size: 1.01rem;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.35;
-      letter-spacing: 0.05em;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    section { margin-left: 40px; margin-right: 40px; }
-    /* Ensure scroll-to-section leaves space for sticky header */
-    section.section,
-    #projects,
-    #experience,
-    #skills,
-    #education,
-    #certifications,
-    #achievements,
-    #contact {
-      scroll-margin-top: 100px;
-    }
-    footer {
-      margin-top: 40px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-    @media (max-width: 850px) {
-      .wrap {
-        padding: 20px 8px 60px;
-      }
-
-      header {
-        padding: 12px 14px;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        max-width: 100vw;
-      }
-
-      .brand {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .brand div {
-        text-align: center;
-      }
-
-      nav {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-        overflow: visible;
-      }
-
-      nav a,
-      nav .btn {
-        flex-shrink: 0;
-        white-space: nowrap;
-        margin: 0;
-        font-size: 14px;
-      }
-      .hero {
-        grid-template-columns: 1fr;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 0 6px;
-        gap: 18px;
-      }
-      .hero .card,
-      .proj .card,
-      .card {
-        width: 100%;
-        min-width: 0;
-        padding: 20px 12px;
-        margin-left: 0;
-        margin-right: 0;
-      }
-      h1, h2, h3, .lead, section h2 {
-        text-align: center !important;
-      }
-      section {
-        margin-left: 0;
-        margin-right: 0;
-      }
-      .proj {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .badge {
-        display: block;
-        width: fit-content;
-        margin: 0 auto 6px auto;
-        text-align: center;
-      }
-      .btn {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 8px;
-        font-size: 1rem;
-      }
-      .photo-modal img {
-        width: min(90vw, 360px);
-        height: min(90vw, 360px);
-        aspect-ratio: 1/1;
-        max-width: 96vw;
-        max-height: 96vw;
-      }
-      #education .proj,
-      #certifications .proj,
-      #achievements .proj {
-        gap: 20px !important;
-      }
-      #education .card,
-      #certifications .card,
-      #achievements .card {
-        padding: 18px 10px 18px 10px !important;
-        min-height: unset;
-      }
-      #education .card .badge {
-        margin-bottom: 10px;
-        font-size: 13px;
-      }
-      footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        font-size: 13px;
-      }
-      /* Add vertical spacing between sections for mobile readability */
-      section.section {
-        margin-top: 36px !important;
-        margin-bottom: 36px !important;
-      }
-      #education.section {
-        margin-top: 36px !important;
-      }
-      #certifications.section,
-      #achievements.section,
-      #contact.section {
-        margin-top: 36px !important;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 10px 12px;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        max-width: 100vw;
-      }
-
-      nav {
-        font-size: 13px;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        width: 100%;
-        overflow: visible;
-      }
-
-      nav a,
-      nav .btn {
-        margin: 0;
-        padding: 8px 12px;
-      }
-    }
-    .card, .btn { transition: all 0.3s ease-in-out; }
-
-    .photo-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(10, 12, 18, 0.55);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-      animation: fadeIn 0.25s ease forwards;
-      overflow: hidden;
-    }
-    .photo-modal img {
-      width: 420px;
-      height: 420px;
-      border-radius: 22px;
-      object-fit: cover;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.05) inset;
-      transform: translateY(-20px) scale(0.9);
-      opacity: 0;
-      animation: zoomIn 0.4s ease forwards;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; background: rgba(10, 12, 18, 0.4); }
-      100% { opacity: 1; background: rgba(10, 12, 18, 0.55); }
-    }
-    @keyframes fadeOut {
-      0% { opacity: 1; background: rgba(10, 12, 18, 0.55); }
-      100% { opacity: 0; background: rgba(10, 12, 18, 0.4); }
-    }
-    @keyframes zoomIn {
-      0% { transform: translateY(-20px) scale(0.9); opacity: 0; }
-      100% { transform: translateY(0) scale(1); opacity: 1; }
-    }
-    @keyframes zoomOut {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-20px) scale(0.9); opacity: 0; }
-    }
-
-    /* Hide mobile-only controls on desktop */
-    .mobile-controls,
-    .mc-backdrop,
-    .mc-sheet {
-      display: none;
-    }
-
-.mobile-ui {
-  display: none;
-}
-
-@media (max-width: 850px) {
-  header {
-    display: none;
-  }
-  .mobile-ui {
-    position: fixed;
-    top: 14px;
-    left: 12px;
-    right: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    z-index: 1000;
-    pointer-events: auto;
-  }
-
-  .mui-avatar {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-    background: none;
-  }
-
-  .mui-avatar img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid rgba(255,255,255,0.2);
-  }
-
-  .mui-title {
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(15,23,42,0.7);
-    backdrop-filter: blur(12px);
-    font-size: 14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  }
-
-  .mui-menu-btn {
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: none;
-    background: rgba(15,23,42,0.7);
-    backdrop-filter: blur(12px);
-    color: var(--text);
-    font-size: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  }
-
-  .mui-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(4px);
-    z-index: 998;
-  }
-
-  .mui-panel {
-    position: fixed;
-    top: 80px;
-    left: 12px;
-    right: 12px;
-    background: var(--card);
-    border-radius: 16px;
-    padding: 20px;
-    display: none;
-    flex-direction: column;
-    gap: 14px;
-    z-index: 999;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    animation: muiIn 0.2s ease forwards;
-  }
-
-  .mui-panel a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 16px;
-  }
-
-  .mui-panel.open,
-  .mui-backdrop.open {
-    display: flex;
-  }
-
-  @keyframes muiIn {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-}
-
-
-/* === Production-grade Mobile Control Layer === */
-@media (max-width: 850px) {
-  header { display: none; }
-
-  .mobile-controls {
-    display: flex;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    z-index: 1000;
-    pointer-events: auto;
-  }
-
-  .mc-chip {
-    background: rgba(15,23,42,0.55);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 999px;
-    padding: 6px 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text);
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  }
-
-  .mc-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    overflow: hidden;
-    padding: 0;
-    background: none;
-    border: none;
-  }
-
-  .mc-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .mc-title {
-    font-size: 13px;
-    opacity: 0.9;
-  }
-
-  .mc-menu-btn {
-    background: rgba(15,23,42,0.6);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 999px;
-    padding: 8px 14px;
-    color: var(--text);
-    font-size: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  }
-
-  .mc-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(4px);
-    z-index: 998;
-  }
-
-  .mc-backdrop.open {
-    display: block;
-  }
-
-  .mc-sheet {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: var(--card);
-    border-radius: 0 0 22px 22px;
-    padding: 90px 24px 24px;
-    flex-direction: column;
-    gap: 18px;
-    z-index: 999;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-
-  .mc-sheet.open {
-    display: flex;
-    animation: sheetIn 0.22s cubic-bezier(.2,.8,.2,1) forwards;
-  }
-
-  .mc-sheet a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 16px;
-  }
-
-  @keyframes sheetIn {
-    from { opacity: 0; transform: translateY(-12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-}
-
-
-/* === App-grade polish === */
-.mc-menu-btn {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.mc-menu-btn span {
-  display: block;
-  width: 18px;
-  height: 2px;
-  background: currentColor;
-  border-radius: 2px;
-  transition: transform .25s ease, opacity .25s ease;
-}
-.mc-menu-btn.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.mc-menu-btn.active span:nth-child(2) { opacity: 0; }
-.mc-menu-btn.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-body.no-scroll { overflow: hidden; }
-
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
-
-</style>
-
-  <script>
-    const toggleTheme = () => {
-      const root = document.documentElement;
-      const isLight = root.classList.toggle("light");
-      localStorage.setItem("theme", isLight ? "light" : "dark");
-    };
-    document.addEventListener("DOMContentLoaded", () => {
-      const saved = localStorage.getItem("theme");
-      if (saved === "light") document.documentElement.classList.add("light");
-    });
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Swapnil Kumar",
-    "alternateName": "decodeswapnil",
-    "url": "https://decodeswapnil.github.io/",
-    "jobTitle": "Linux Administrator / Builder",
-    "alumniOf": "Chandigarh University",
-    "sameAs": [
-      "https://github.com/decodeswapnil",
-      "https://www.linkedin.com/in/dmtoswapnil"
-    ]
-  }
-  </script>
+  </style>
 </head>
-
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-      
-      <img src="profile.jpg" alt="Professional headshot of Swapnil Kumar wearing formal attire with a confident smile against a neutral background" style="width:48px; height:48px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,0.2); padding:2px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-      <div>
-        <strong>Swapnil Kumar</strong><br/>
-        <span style="color:var(--muted)">Linux Administrator · Cloud & Automation Engineer</span>
-      </div>
+        <img src="profile.jpg" alt="Swapnil Kumar Profile" class="logo-img" onclick="openProfile()">
+        <strong>Swapnil Kumar</strong>
       </div>
       <nav>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-      <button class="btn" onclick="toggleTheme()">🌓</button>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#" onclick="toggleTheme(); return false;">🌓</a>
       </nav>
     </header>
 
+    <div class="mobile-controls">
+      <button class="mc-avatar" onclick="openProfile()">
+        <img src="profile.jpg" alt="Profile">
+      </button>
+      <div class="mc-chip">Swapnil Kumar</div>
+      <button class="mc-menu-btn" onclick="toggleMobileSheet()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mc-backdrop" onclick="closeMobileSheet()"></div>
+    <div class="mc-sheet">
+      <a href="#projects" onclick="closeMobileSheet()">Projects</a>
+      <a href="#experience" onclick="closeMobileSheet()">Experience</a>
+      <a href="#skills" onclick="closeMobileSheet()">Skills</a>
+      <a href="#contact" onclick="closeMobileSheet()">Contact</a>
+      <a href="#" onclick="toggleTheme(); closeMobileSheet(); return false;">🌓 Toggle Theme</a>
+    </div>
+
     <section class="hero">
-      <div class="card">
-        <h1>Practical systems. Clean automation. No fluff.</h1>
-        <p class="lead">Cloud & Automation Engineer with enterprise experience. Backed by 6 industry certifications, I fix production issues, automate repetitive work, and ship production applications.</p>
-        <div>
-          <span class="badge">Linux (RHEL/SUSE)</span>
-          <span class="badge">Bash</span>
-          <span class="badge">Python</span>
-          <span class="badge">GitHub Actions</span>
-          <span class="badge">AWS</span>
-        </div>
-        <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="btn" href="#projects">View Projects →</a>
-          <a class="btn" href="mailto:dmtoswapnil@gmail.com">Hire Me</a>
-          <a class="btn" href="./Swapnil_Kumar_Resume.pdf" download>Download Résumé</a>
-        </div>
+      <img src="profile.jpg" alt="Swapnil" class="profile-lg" onclick="openProfile()">
+      <h1>Cloud & Automation <br/><span>Engineer</span></h1>
+      <p class="lead" style="margin-top: 16px;">Backed by 6 industry certifications, I fix production issues, automate repetitive work, and build robust software. Currently at Accenture.</p>
+      
+      <div class="hero-actions">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn btn-outline" href="./Swapnil_Kumar_Resume.pdf" download>Download Résumé</a>
       </div>
 
-      <div class="card">
-        <h2>Quick Facts</h2>
-        <ul style="color:var(--muted); padding-left:20px;">
-          <li>Built SaralAI — AI-powered accessibility tool for Accenture Hackathon.</li>
-          <li>Built a finance web app using Firebase + FMP API.</li>
-          <li>Developed automation scripts to reduce infra cost.</li>
-          <li>Holds 6 Cloud Certifications across Azure and Google Cloud.</li>
-        </ul>
+      <div class="skills-grid" style="margin-top: 24px;">
+        <span class="badge">Linux (RHEL/SUSE)</span>
+        <span class="badge">AWS / GCP / Azure</span>
+        <span class="badge">Python & Bash</span>
+        <span class="badge">React & Cloudflare</span>
       </div>
     </section>
 
     <section id="projects" class="section">
-      <h2 style="margin-top:60px; margin-bottom:32px;">Selected Projects</h2>
+      <h2>Featured <span>Projects</span></h2>
       <div class="proj">
-        <article class="card">
+        <div class="card">
           <span class="badge">2026</span>
           <h3>SaralAI</h3>
-          <p>AI-powered reading assistant for ADHD and Dyslexia, supporting 12+ Indian languages.</p>
-          <div>
+          <p>AI-powered reading assistant for ADHD and Dyslexia, supporting 12+ Indian languages via Gemini API.</p>
+          <div style="margin-bottom: 24px;">
             <span class="badge">React</span>
             <span class="badge">Gemini API</span>
-            <span class="badge">Cloudflare Workers</span>
+            <span class="badge">Workers</span>
           </div>
-          <a class="btn" href="http://saral-ai-web.pages.dev/" target="_blank">Live</a>
-        </article>
+          <a class="btn btn-outline" style="width: 100%" href="http://saral-ai-web.pages.dev/" target="_blank">View Live App &rarr;</a>
+        </div>
 
-        <article class="card">
+        <div class="card">
           <span class="badge">2025</span>
           <h3>Infra Cost Guard</h3>
-          <p>Toolkit that finds idle volumes, old snapshots, and oversized EC2s — auto-opens cost tickets.</p>
-          <div>
+          <p>Toolkit that finds idle cloud resources and oversized EC2s—auto-opening actionable cost-saving tickets.</p>
+          <div style="margin-bottom: 24px;">
             <span class="badge">Python</span>
-            <span class="badge">AWS</span>
+            <span class="badge">AWS API</span>
             <span class="badge">Automation</span>
           </div>
-          <a class="btn" href="https://github.com/decodeswapnil" target="_blank">Code</a>
-        </article>
+          <a class="btn btn-outline" style="width: 100%" href="https://github.com/decodeswapnil" target="_blank">View Code &rarr;</a>
+        </div>
 
-        <article class="card">
+        <div class="card">
           <span class="badge">2024</span>
           <h3>Finance Web App</h3>
-          <p>Stock tracking app with Firebase authentication and FMP API integration.</p>
-          <div>
+          <p>Real-time stock tracking app with secure Firebase auth and Financial Modeling Prep (FMP) proxy APIs.</p>
+          <div style="margin-bottom: 24px;">
             <span class="badge">Firebase</span>
             <span class="badge">FMP API</span>
             <span class="badge">JavaScript</span>
           </div>
-          <a class="btn" href="https://finzo.pages.dev/" target="_blank">Live</a>
+          <a class="btn btn-outline" style="width: 100%" href="https://finzo.pages.dev/" target="_blank">View Live App &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Work <span>Experience</span></h2>
+      <div class="card" style="padding: 40px;">
+        <div class="exp-container">
+          <div class="exp-item">
+            <strong>Accenture</strong>
+            <span class="date">Cloud & Automation Engineer / Linux Admin</span> <span style="font-size:13px; color:var(--muted); margin-left: 8px;">Sep 2024 – Present</span>
+            <ul>
+              <li>Manage and administer Linux systems supporting enterprise applications.</li>
+              <li>Work across AWS, Azure, and GCP in multi-cloud enterprise environments.</li>
+              <li>Automated operational tasks like log triage, disk usage alerts, and kernel cleanup.</li>
+              <li>Built SaralAI during internal Hackathon — AI-powered accessibility tool.</li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <strong>Independent Builder</strong>
+            <span class="date">Full Stack Developer</span> <span style="font-size:13px; color:var(--muted); margin-left: 8px;">2019 – 2024</span>
+            <ul>
+              <li>Developed a real-time finance tracker with secure API proxies.</li>
+              <li>Created MAZE VR puzzle game (2nd Prize at CU Project Expo).</li>
+              <li>Built AI/ML models focusing on automation and recognition tasks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <h2>Cloud <span>Certifications</span></h2>
+      <div class="proj">
+        <!-- Google Cloud Professional Data Engineer -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <img src="https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png" alt="Data Engineer" style="width:90px; height:90px; margin-bottom:16px;">
+          <h3 style="font-size:16px; margin-bottom: 16px;">GCP Professional Data Engineer</h3>
+          <a class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; margin-top:auto;" href="https://www.credly.com/badges/7e303fc0-d172-4caa-a47f-56d23e74a0f0" target="_blank">Verify</a>
+        </article>
+        
+        <!-- Google Cloud Professional Cloud Architect -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <img src="https://images.credly.com/size/340x340/images/71c579e0-51fd-4247-b493-d2fa8167157a/image.png" alt="Cloud Architect" style="width:90px; height:90px; margin-bottom:16px;">
+          <h3 style="font-size:16px; margin-bottom: 16px;">GCP Professional Cloud Architect</h3>
+          <a class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; margin-top:auto;" href="https://www.credly.com/badges/81ae408c-fff1-486e-a906-86aa20a2dd35" target="_blank">Verify</a>
+        </article>
+
+        <!-- Azure Admin -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Azure Admin" style="width:90px; height:90px; margin-bottom:16px;">
+          <h3 style="font-size:16px; margin-bottom: 16px;">Microsoft Azure Administrator</h3>
+          <a class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; margin-top:auto;" href="https://learn.microsoft.com/api/credentials/share/en-us/KumarSwapnil-1073/B1CA839040334063?sharingId" target="_blank">Verify</a>
+        </article>
+
+        <!-- More Certs grouped together to save space -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <h3 style="font-size:18px; color: var(--accent);">+ 3 More Certifications</h3>
+          <p style="font-size:13px; margin: 12px 0;">Professional ML Engineer, Professional Database Eng, Associate Cloud Eng</p>
         </article>
       </div>
     </section>
 
-    <section id="experience" class="section" style="margin-top:40px;">
-      <h2>Experience</h2>
-      <div class="card" style="margin-top:12px;">
-        <strong>Accenture — Cloud & Automation Engineer / Linux Admin</strong>
-        <p style="color:var(--muted); margin-top:4px;">Sep 2024 – Present</p>
-        <ul style="color:var(--muted); margin-top:8px; padding-left:20px;">
-          <li>Work across AWS, Azure, and GCP in multi-cloud enterprise environments.</li>
-          <li>Patching, troubleshooting, and service recovery with detailed runbooks.</li>
-          <li>Automated operational tasks like log triage, disk usage alerts, and kernel cleanup.</li>
-          <li>Built SaralAI during internal Hackathon — AI-powered accessibility tool.</li>
-        </ul>
-      </div>
-
-      <div class="card" style="margin-top:20px;">
-        <strong>Independent — Builder</strong>
-        <p style="color:var(--muted); margin-top:4px;">2019 – 2024</p>
-        <ul style="color:var(--muted); margin-top:8px; padding-left:20px;">
-          <li>Created multiple projects including finance and backup tools.</li>
-          <li>Focused on efficient, no-nonsense system design.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="education" class="section" style="margin-top:60px;">
-      <h2 style="margin-bottom:32px;">Education</h2>
-      <div class="proj" style="gap:32px; justify-content:center; max-width:1000px; margin:0 auto; align-items:stretch;">
-        <article class="card">
+    <section id="skills" class="section">
+      <h2>Education & <span>Achievements</span></h2>
+      <div class="proj">
+        <div class="card" style="text-align: center;">
           <span class="badge">2025</span>
-          <h3>IIT Mandi</h3>
-          <p>
-            Minor in AI &amp; ML
-            <span>CGPA 8.1</span>
-          </p>
-        </article>
-        <article class="card">
+          <h3 style="margin-top: 12px;">IIT Mandi</h3>
+          <p>Minor in Data Science & ML<br/><strong style="color:var(--accent);">CGPA: 8.1</strong></p>
+        </div>
+        <div class="card" style="text-align: center;">
           <span class="badge">2024</span>
-          <h3>Chandigarh University</h3>
-          <p>
-            BCA (AR/VR)
-            <span>CGPA 8.11</span>
-          </p>
-        </article>
-        <article class="card">
-          <span class="badge">2020</span>
-          <h3>Chauhan Public School</h3>
-          <p>
-            Class XII, PCM
-            <span>81%</span>
-          </p>
-        </article>
-        <article class="card">
-          <span class="badge">2018</span>
-          <h3>Mount Assisi School</h3>
-          <p>
-            Class X
-            <span>91%</span>
-          </p>
-        </article>
+          <h3 style="margin-top: 12px;">Chandigarh University</h3>
+          <p>BCA (AR/VR)<br/><strong style="color:var(--accent);">CGPA: 8.11</strong></p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <span class="badge">2023</span>
+          <h3 style="margin-top: 12px;">🏆 2nd Prize – CU Project Expo</h3>
+          <p>Awarded for MAZE VR — an immersive VR puzzle game built in Unreal Engine.</p>
+        </div>
       </div>
     </section>
 
-    <section id="skills" class="section" style="margin-top:40px;">
-      <h2>Skills</h2>
-      <div>
-        <span class="badge">Linux (RHEL/SUSE)</span>
-        <span class="badge">Cloud (Azure / Google Cloud / AWS)</span>
-        <span class="badge">Infrastructure Automation</span>
-        <span class="badge">Systemd / rsyslog / LVM</span>
-        <span class="badge">Networking & Security</span>
-        <span class="badge">Python / Bash</span>
-        <span class="badge">Git / GitHub Actions</span>
-        <span class="badge">Docker / Containers</span>
-        <span class="badge">Monitoring & Incident Response</span>
-        <span class="badge">DevOps Fundamentals</span>
-      </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="section" style="margin-top:80px; text-align:center;">
-      <h2 style="margin-bottom:32px;">Certifications</h2>
-      <p style="color:var(--muted); margin-bottom:40px;">Industry-recognized credentials demonstrating multi-cloud expertise and automation proficiency.</p>
-
-      <div class="proj" style="gap:32px; justify-content:center; align-items:stretch; max-width:1000px; margin:0 auto;">
-        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarSwapnil-1073/B1CA839040334063?sharingId" target="_blank" style="display:block;">
-            <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Microsoft Azure Administrator Associate Badge" style="width:110px; height:110px; margin-bottom:12px;">
-          </a>
-          <div style="margin-bottom:8px;"><span class="badge">Issued · Sep 2025</span></div>
-          <h3 style="margin-bottom:12px;">Microsoft Certified: Azure Administrator Associate</h3>
-          <a class="btn" href="https://learn.microsoft.com/api/credentials/share/en-us/KumarSwapnil-1073/B1CA839040334063?sharingId" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
-        </article>
-        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <a href="https://www.credly.com/badges/2941dcb8-95c4-4868-a0a3-670ca03fdd52" target="_blank" style="display:block;">
-            <img src="https://images.credly.com/size/340x340/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Associate Cloud Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
-          </a>
-          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
-          <h3 style="margin-bottom:12px;">Google Cloud Associate Cloud Engineer</h3>
-          <a class="btn" href="https://www.credly.com/badges/2941dcb8-95c4-4868-a0a3-670ca03fdd52" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
-        </article>
-        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <a href="https://www.credly.com/badges/81ae408c-fff1-486e-a906-86aa20a2dd35" target="_blank" style="display:block;">
-            <img src="https://images.credly.com/size/340x340/images/71c579e0-51fd-4247-b493-d2fa8167157a/image.png" alt="Google Cloud Professional Cloud Architect Badge" style="width:110px; height:110px; margin-bottom:12px;">
-          </a>
-          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
-          <h3 style="margin-bottom:12px;">Google Cloud Professional Cloud Architect</h3>
-          <a class="btn" href="https://www.credly.com/badges/81ae408c-fff1-486e-a906-86aa20a2dd35" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
-        </article>
-        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <a href="https://www.credly.com/badges/bf871835-e24b-4285-9106-cae5f0439741" target="_blank" style="display:block;">
-            <img src="https://images.credly.com/size/340x340/images/275e69a5-33a8-4d9c-bad4-2bdc0dfb7d40/image.png" alt="Google Cloud Professional Database Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
-          </a>
-          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
-          <h3 style="margin-bottom:12px;">Google Cloud Professional Database Engineer</h3>
-          <a class="btn" href="https://www.credly.com/badges/bf871835-e24b-4285-9106-cae5f0439741" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
-        </article>
-        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <a href="https://www.credly.com/badges/7e303fc0-d172-4caa-a47f-56d23e74a0f0" target="_blank" style="display:block;">
-            <img src="https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png" alt="Google Cloud Professional Data Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
-          </a>
-          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
-          <h3 style="margin-bottom:12px;">Google Cloud Professional Data Engineer</h3>
-          <a class="btn" href="https://www.credly.com/badges/7e303fc0-d172-4caa-a47f-56d23e74a0f0" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
-        </article>
-        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <a href="https://www.credly.com/badges/c87fb4f5-aba6-48b0-9918-d4d8ef0a11fa" target="_blank" style="display:block;">
-            <img src="https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png" alt="Google Cloud Professional Machine Learning Engineer Badge" style="width:110px; height:110px; margin-bottom:12px;">
-          </a>
-          <div style="margin-bottom:8px;"><span class="badge">Issued · May 2025</span></div>
-          <h3 style="margin-bottom:12px;">Google Cloud Professional Machine Learning Engineer</h3>
-          <a class="btn" href="https://www.credly.com/badges/c87fb4f5-aba6-48b0-9918-d4d8ef0a11fa" target="_blank" style="margin-top:auto;">🔗 Verify Credential</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="section" style="margin-top:100px; text-align:center;">
-      <h2 style="margin-bottom:32px;">Achievements</h2>
-      <p style="color:var(--muted); margin-bottom:40px;">Milestones that reflect innovation, precision, and execution across projects.</p>
-
-      <div class="proj" style="gap:32px; justify-content:center; max-width:1000px; margin:0 auto;">
-        <article class="card" style="text-align:center;">
-          <h3>🏆 SaralAI Hackathon Project</h3>
-          <p style="color:var(--muted); margin-top:8px;">Built an AI accessibility tool supporting 12+ Indian languages using Gemini API at Accenture.</p>
-        </article>
-
-        <article class="card" style="text-align:center;">
-          <h3>☁️ 6 Cloud Certifications</h3>
-          <p style="color:var(--muted); margin-top:8px;">Achieved multiple Google Cloud and Azure credentials including Professional Architect & Data Engineer.</p>
-        </article>
-
-        <article class="card" style="text-align:center;">
-          <h3>🏆 2nd Prize – CU Project Expo</h3>
-          <p style="color:var(--muted); margin-top:8px;">Awarded for <em>MAZE VR</em> — an immersive VR puzzle game built in Unreal Engine.</p>
-        </article>
-
-        <article class="card" style="text-align:center;">
-          <h3>💡 Infra Cost Guard</h3>
-          <p style="color:var(--muted); margin-top:8px;">Developed a toolkit to identify idle resources and automate cost reports.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section" style="margin-top:100px; text-align:center;">
-      <h2>Contact</h2>
-      <p class="lead">Let’s connect for collaboration, innovation, or meaningful opportunities.</p>
-      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:20px;">
-        <a class="btn" href="mailto:dmtoswapnil@gmail.com">✉️ Email</a>
-        <a class="btn" href="https://github.com/decodeswapnil" target="_blank">🐙 GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/dmtoswapnil" target="_blank">in LinkedIn</a>
+    <section id="contact" class="section">
+      <div class="card" style="text-align:center; border-color: var(--accent); box-shadow: var(--glow);">
+        <h2>Let's <span>Connect</span></h2>
+        <p class="lead" style="margin-bottom: 32px;">I'm currently open to new opportunities matching my skills in Cloud, Automation, and Full Stack Development.</p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+          <a class="btn" href="mailto:dmtoswapnil@gmail.com">Email Me</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/dmtoswapnil" target="_blank">LinkedIn</a>
+          <a class="btn btn-outline" href="https://github.com/decodeswapnil" target="_blank">GitHub</a>
+        </div>
       </div>
     </section>
 
     <footer>
       <small>© <span id="year"></span> Swapnil Kumar</small>
-      <small>Built with semantic HTML + zero dependencies.</small>
+      <small>Clean styling · Zero dependencies.</small>
     </footer>
+  </div>
+
+  <div id="photoModal" class="photo-modal" onclick="closeProfile()">
+    <img id="modalImage" src="profile.jpg" alt="Profile">
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    
+    function openProfile() { document.getElementById('photoModal').style.display = 'flex'; }
+    function closeProfile() { document.getElementById('photoModal').style.display = 'none'; }
+    
+    function toggleTheme() {
+      const isLight = document.documentElement.classList.toggle("light");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    }
 
-  <script>
-    const bg = document.body;
-    document.addEventListener("mousemove", e => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      bg.style.background = 
-        `radial-gradient(circle at ${x}% ${y}%, rgba(34,211,238,0.1), transparent 70%), 
-         radial-gradient(circle at ${100-x}% ${100-y}%, rgba(167,139,250,0.1), transparent 70%), 
-         var(--bg)`;
-    });
-  </script>
-
-  <div id="photoModal" class="photo-modal">
-    <img id="modalImage" src="profile.jpg" alt="Swapnil Kumar enlarged photo">
-  </div>
-
-  <script>
-    const profileImg = document.querySelector('header .brand img');
-    const modal = document.getElementById('photoModal');
-    const modalImg = document.getElementById('modalImage');
-
-    profileImg.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modalImg.style.animation = 'zoomIn 0.4s ease forwards';
-      modal.style.animation = 'fadeIn 0.3s ease forwards';
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modalImg.style.animation = 'zoomOut 0.3s ease forwards';
-        modal.style.animation = 'fadeOut 0.3s ease forwards';
-        setTimeout(() => {
-          modal.style.display = 'none';
-        }, 300);
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.classList.add("light");
       }
     });
+
+    function toggleMobileSheet() {
+      document.querySelector('.mc-sheet').classList.toggle('open');
+      document.querySelector('.mc-backdrop').classList.toggle('open');
+    }
+    function closeMobileSheet() {
+      document.querySelector('.mc-sheet').classList.remove('open');
+      document.querySelector('.mc-backdrop').classList.remove('open');
+    }
   </script>
-
-
-
-<!-- Production-grade Mobile Controls -->
-<div class="mobile-controls">
-  <button class="mc-avatar" onclick="openProfile()">
-    <img src="profile.jpg" alt="Profile">
-  </button>
-
-  <div class="mc-chip">
-    <span class="mc-title">Swapnil Kumar</span>
-  </div>
-
-  <button class="mc-menu-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileSheet()">
-  <span></span><span></span><span></span>
-</button>
-</div>
-
-<div class="mc-backdrop" onclick="closeMobileSheet()"></div>
-
-<div class="mc-sheet">
-  <a href="#projects" onclick="closeMobileSheet()">Projects</a>
-  <a href="#experience" onclick="closeMobileSheet()">Experience</a>
-  <a href="#skills" onclick="closeMobileSheet()">Skills</a>
-  <a href="#contact" onclick="closeMobileSheet()">Contact</a>
-  <button class="btn" onclick="toggleTheme()">🌓 Theme</button>
-</div>
-
-
-<script>
-function toggleMobileSheet() {
-  document.querySelector('.mc-sheet').classList.toggle('open');
-  document.querySelector('.mc-backdrop').classList.toggle('open');
-}
-
-function closeMobileSheet() {
-  document.querySelector('.mc-sheet').classList.remove('open');
-  document.querySelector('.mc-backdrop').classList.remove('open');
-}
-
-function openProfile() {
-  const img = document.querySelector('header .brand img');
-  if (img) img.click();
-}
-</script>
-
-
-<script>
-(function(){
-  const btn = document.querySelector('.mc-menu-btn');
-  const sheet = document.querySelector('.mc-sheet');
-  const backdrop = document.querySelector('.mc-backdrop');
-
-  if (!btn || !sheet || !backdrop) return;
-
-  window.toggleMobileSheet = function(){
-    const open = sheet.classList.toggle('open');
-    backdrop.classList.toggle('open', open);
-    btn.classList.toggle('active', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.classList.toggle('no-scroll', open);
-    if(open) sheet.setAttribute('tabindex','-1'), sheet.focus();
-  }
-
-  window.closeMobileSheet = function(){
-    sheet.classList.remove('open');
-    backdrop.classList.remove('open');
-    btn.classList.remove('active');
-    btn.setAttribute('aria-expanded','false');
-    document.body.classList.remove('no-scroll');
-  }
-
-  document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape') closeMobileSheet();
-  });
-})();
-</script>
-
 </body>
 </html>
