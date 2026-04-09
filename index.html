@@ -137,7 +137,10 @@
       .hero h1 { font-size: 32px; }
       .wrap { padding-top: 0; }
       .mc-menu-btn span { display: block; width: 20px; height: 2px; background: currentColor; margin: 4px 0; transition: 0.3s; }
-      .modal-content { padding: 24px; }
+      .modal-content { padding: 20px; border-radius: 12px; }
+      .card { padding: 24px; }
+      section h2 { font-size: 24px; margin-bottom: 24px; }
+      .proj { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -257,6 +260,18 @@
             <span class="badge">JavaScript</span>
           </div>
           <a class="btn btn-outline" style="width: 100%" href="#" onclick="openModal('finzoModal'); return false;">View Details &rarr;</a>
+        </div>
+
+        <div class="card">
+          <span class="badge">2020</span>
+          <h3>ENTV</h3>
+          <p>Movie streaming platform independently built for friends and peers during lockdown for self-learning purposes.</p>
+          <div style="margin-bottom: 24px;">
+            <span class="badge">Kodular</span>
+            <span class="badge">Airtable</span>
+            <span class="badge">User Auth</span>
+          </div>
+          <a class="btn btn-outline" style="width: 100%" href="#" onclick="openModal('entvModal'); return false;">Read Case Study &rarr;</a>
         </div>
       </div>
     </section>
@@ -446,6 +461,32 @@
         <li>Currently production-deployed successfully on Cloudflare Pages.</li>
       </ul>
       <a class="btn" href="https://finzo.pages.dev/" target="_blank">View Live App &rarr;</a>
+    </div>
+  </div>
+
+  <div id="entvModal" class="info-modal" onclick="closeModalOutside('entvModal', event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('entvModal')">&times;</button>
+      <div style="margin-bottom:16px;">
+        <span class="badge">Kodular</span>
+        <span class="badge">Airtable</span>
+        <span class="badge">User Auth</span>
+      </div>
+      <h2 style="margin-bottom:12px; font-size: 26px; text-align: left;">ENTV <span style="color:var(--muted); font-size:18px;">— Streaming Platform</span></h2>
+      <p style="color:var(--text); margin-bottom: 24px;">A fully functional movie streaming platform independently built to serve peers during the 2020 lockdown, driving my initial passion for product development.</p>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Key Technical Features:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li><b>Development Framework:</b> Engineered primarily via Kodular using visual block-based logic algorithms.</li>
+        <li><b>Database:</b> Connected to an Airtable backend to seamlessly store and retrieve content libraries, metadata, and streams.</li>
+        <li><b>User Management:</b> Architected a secure user login flow to handle personalized usage tracking and gating constraints.</li>
+      </ul>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Impact:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li>Successfully handled active user streaming and database loads during heavy lockdown restrictions.</li>
+        <li>Demonstrated early extreme self-initiative, completing an end-to-end media application from scratch solely for learning.</li>
+      </ul>
     </div>
   </div>
 
