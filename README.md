@@ -26,6 +26,19 @@ Interested in problems involving data, APIs, system design, security, and perfor
 
 ## Projects
 
+### SaralAI — AI-Powered Accessibility Reading Assistant
+AI-powered reading assistant designed for users with ADHD and Dyslexia. Simplifies complex web content into digestible formats with multi-language support.
+
+**Stack:** React, Vite, Cloudflare Workers, Google Gemini API, Firebase Auth, Chrome Extension  
+**Highlights:**
+- Multi-model Gemini fallback chain via Cloudflare Workers
+- 12+ Indian language text simplification and text-to-speech
+- Specialized UI modes for ADHD (scrollable) and Dyslexia (flashcards)
+
+**Live:** http://saral-ai-web.pages.dev/
+
+---
+
 ### Finance & Stock Tracking Web Application
 Full-stack web application for tracking real-time stock data and managing personalized watchlists.
 
