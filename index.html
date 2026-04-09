@@ -56,17 +56,22 @@
     .btn-outline { background: transparent; color: var(--heading) !important; border: 1px solid var(--card-border); }
     .btn-outline:hover { border-color: var(--accent); background: rgba(0, 163, 255, 0.05); color: var(--accent) !important; }
 
-    .hero { text-align: center; margin-bottom: 80px; animation: fadeIn 0.8s ease-out; }
+    .hero { text-align: center; margin-bottom: 60px; animation: fadeIn 0.8s ease-out; }
     .hero img.profile-lg { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 24px; border: 2px solid var(--accent); box-shadow: var(--glow); cursor: pointer; }
     .hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
     .hero h1 span { color: var(--accent); }
-    .hero .lead { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto 32px auto; }
-    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero .lead { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto 24px auto; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
     
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseTrack { 0% { box-shadow: 0 0 0 0 rgba(0, 163, 255, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(0, 163, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 163, 255, 0); } }
+
 
     .card { background: var(--card); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 16px; border: 1px solid var(--card-border); padding: 32px; position: relative; overflow: hidden; }
-    .card:hover { border-color: rgba(0, 163, 255, 0.4); box-shadow: var(--glow); }
+    .card::after { content: ""; position: absolute; inset: 0; background: radial-gradient(500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(0, 163, 255, 0.1), transparent 40%); opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 5; mix-blend-mode: screen; }
+    .light .card::after { background: radial-gradient(500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(2, 132, 199, 0.06), transparent 40%); mix-blend-mode: normal; }
+    .card:hover::after { opacity: 1; }
+    .card:hover { border-color: rgba(0, 163, 255, 0.4); box-shadow: var(--glow); transform: translateY(-4px); }
     
     section.section { margin-top: 100px; scroll-margin-top: 120px; }
     section h2 { font-size: 28px; margin-bottom: 40px; text-align: center; }
@@ -83,16 +88,23 @@
     .light .proj .card .badge { border-color: rgba(2, 132, 199, 0.3); background: rgba(2, 132, 199, 0.08); }
     
     .exp-container { border-left: 2px solid var(--card-border); margin-left: 12px; padding-left: 24px; text-align: left; }
-    .exp-item { position: relative; padding-bottom: 40px; }
+    .exp-item { position: relative; padding-bottom: 40px; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .exp-item.in-view { opacity: 1; transform: translateY(0); }
     .exp-item:last-child { padding-bottom: 0; }
-    .exp-item::before { content: ""; position: absolute; width: 14px; height: 14px; background: var(--bg); border: 2px solid var(--accent); border-radius: 50%; left: -32px; top: 4px; box-shadow: 0 0 10px rgba(0,163,255,0.4); }
+    .exp-item::before { content: ""; position: absolute; width: 14px; height: 14px; background: var(--bg); border: 2px solid var(--muted); border-radius: 50%; left: -32px; top: 4px; transform: scale(0); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.4s; transition-delay: 0.1s; }
+    .exp-item.in-view::before { transform: scale(1); border-color: var(--accent); box-shadow: 0 0 10px rgba(0,163,255,0.4); }
+    .exp-item.current.in-view::before { animation: pulseTrack 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1); background: var(--accent); }
     .exp-item strong { display: block; font-size: 18px; margin-bottom: 4px; }
     .exp-item .date { font-size: 14px; color: var(--accent); margin-bottom: 12px; font-weight: 600; display: inline-block; background: rgba(0,163,255,0.1); padding: 4px 10px; border-radius: 6px; }
     .exp-item ul { color: var(--muted); padding-left: 18px; font-size: 15px; margin-top: 8px; }
     .exp-item ul li { margin-bottom: 8px; }
 
-    .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .skills-grid .badge { font-size: 14px; padding: 10px 16px; background: var(--card); }
+    .marquee-wrapper { overflow: hidden; position: relative; width: 100%; max-width: 800px; margin: 0 auto; -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+    .marquee-content { display: flex; width: max-content; gap: 16px; animation: scrollMarquee 20s linear infinite; }
+    .marquee-content:hover { animation-play-state: paused; }
+    .marquee-content .badge { font-size: 14px; padding: 10px 16px; background: var(--card); flex-shrink: 0; cursor: pointer; transition: transform 0.2s; }
+    .marquee-content .badge:hover { transform: scale(1.05); color: var(--accent); border-color: var(--accent); }
+    @keyframes scrollMarquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 8px)); } }
 
     .masonry { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 
@@ -100,6 +112,11 @@
 
     .photo-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 9999; justify-content: center; align-items: center; }
     .photo-modal img { width: 360px; height: 360px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: var(--glow); }
+
+    .info-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px; }
+    .modal-content { background: var(--bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 32px; max-width: 650px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; animation: fadeIn 0.3s ease forwards; box-shadow: var(--shadow); }
+    .modal-close { position: absolute; top: 16px; right: 20px; font-size: 28px; cursor: pointer; color: var(--muted); background: none; border: none; }
+    .modal-close:hover { color: var(--accent); }
 
     .mobile-controls, .mc-backdrop, .mc-sheet { display: none; }
 
@@ -119,8 +136,8 @@
       .hero { margin-top: 100px; }
       .hero h1 { font-size: 32px; }
       .wrap { padding-top: 0; }
-      
       .mc-menu-btn span { display: block; width: 20px; height: 2px; background: currentColor; margin: 4px 0; transition: 0.3s; }
+      .modal-content { padding: 24px; }
     }
   </style>
 </head>
@@ -160,18 +177,46 @@
     <section class="hero">
       <img src="profile.jpg" alt="Swapnil" class="profile-lg" onclick="openProfile()">
       <h1>Cloud & Automation <br/><span>Engineer</span></h1>
-      <p class="lead" style="margin-top: 16px;">Backed by 6 industry certifications, I fix production issues, automate repetitive work, and build robust software. Currently at Accenture.</p>
+      <p class="lead">Backed by 6 industry certifications, I fix production issues, automate repetitive work, and build robust software. Currently at Accenture.</p>
       
       <div class="hero-actions">
         <a class="btn" href="#projects">View Projects</a>
         <a class="btn btn-outline" href="./Swapnil_Kumar_Resume.pdf" download>Download Résumé</a>
       </div>
 
-      <div class="skills-grid" style="margin-top: 24px;">
-        <span class="badge">Linux (RHEL/SUSE)</span>
-        <span class="badge">AWS / GCP / Azure</span>
-        <span class="badge">Python & Bash</span>
-        <span class="badge">React & Cloudflare</span>
+      <div class="marquee-wrapper">
+        <div class="marquee-content">
+          <span class="badge">Linux (RHEL/SUSE)</span>
+          <span class="badge">AWS / GCP / Azure</span>
+          <span class="badge">Python & Bash</span>
+          <span class="badge">React & Cloudflare</span>
+          <span class="badge">Docker & Firebase</span>
+          <!-- Duplicate for infinite scrolling illusion -->
+          <span class="badge">Linux (RHEL/SUSE)</span>
+          <span class="badge">AWS / GCP / Azure</span>
+          <span class="badge">Python & Bash</span>
+          <span class="badge">React & Cloudflare</span>
+          <span class="badge">Docker & Firebase</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Philosophy Section -->
+    <section class="section" style="margin-top: 60px; margin-bottom: 80px;">
+      <h2 style="font-size: 16px; color: var(--muted); margin-bottom: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Engineering Philosophy</h2>
+      <div class="proj">
+        <div class="card" style="padding: 24px;">
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--accent);">☁️ Cloud & Infra</h3>
+          <p style="font-size: 14px; color: var(--muted); margin: 0;">Certified architect. I design robust, multi-cloud architectures that don't over-engineer simple problems.</p>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--accent);">⚙️ Automation</h3>
+          <p style="font-size: 14px; color: var(--muted); margin: 0;">Manual tasks are tech debt. I write Bash and Python scripts to eliminate repetitive operational overhead.</p>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--accent);">💻 Product Dev</h3>
+          <p style="font-size: 14px; color: var(--muted); margin: 0;">Full-stack capable. I build real applications with secure serverless backends and modern Javascript.</p>
+        </div>
       </div>
     </section>
 
@@ -187,7 +232,7 @@
             <span class="badge">Gemini API</span>
             <span class="badge">Workers</span>
           </div>
-          <a class="btn btn-outline" style="width: 100%" href="http://saral-ai-web.pages.dev/" target="_blank">View Live App &rarr;</a>
+          <a class="btn btn-outline" style="width: 100%" href="#" onclick="openModal('saralModal'); return false;">Read Case Study &rarr;</a>
         </div>
 
         <div class="card">
@@ -199,7 +244,7 @@
             <span class="badge">AWS API</span>
             <span class="badge">Automation</span>
           </div>
-          <a class="btn btn-outline" style="width: 100%" href="https://github.com/decodeswapnil" target="_blank">View Code &rarr;</a>
+          <a class="btn btn-outline" style="width: 100%" href="#" onclick="openModal('infraModal'); return false;">View Implementation &rarr;</a>
         </div>
 
         <div class="card">
@@ -211,7 +256,7 @@
             <span class="badge">FMP API</span>
             <span class="badge">JavaScript</span>
           </div>
-          <a class="btn btn-outline" style="width: 100%" href="https://finzo.pages.dev/" target="_blank">View Live App &rarr;</a>
+          <a class="btn btn-outline" style="width: 100%" href="#" onclick="openModal('finzoModal'); return false;">View Details &rarr;</a>
         </div>
       </div>
     </section>
@@ -220,23 +265,23 @@
       <h2>Work <span>Experience</span></h2>
       <div class="card" style="padding: 40px;">
         <div class="exp-container">
-          <div class="exp-item">
+          <div class="exp-item current">
             <strong>Accenture</strong>
             <span class="date">Cloud & Automation Engineer / Linux Admin</span> <span style="font-size:13px; color:var(--muted); margin-left: 8px;">Sep 2024 – Present</span>
             <ul>
-              <li>Manage and administer Linux systems supporting enterprise applications.</li>
-              <li>Work across AWS, Azure, and GCP in multi-cloud enterprise environments.</li>
-              <li>Automated operational tasks like log triage, disk usage alerts, and kernel cleanup.</li>
-              <li>Built SaralAI during internal Hackathon — AI-powered accessibility tool.</li>
+              <li>Manage and administer <b>Linux systems</b> supporting critical enterprise applications.</li>
+              <li>Work across <span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">AWS</span><span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">Azure</span><span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">GCP</span> in scaled multi-cloud enterprise environments.</li>
+              <li><b>Automated operational tasks</b> to drastically reduce manual effort, including log triage, disk usage alerts, and kernel cleanup.</li>
+              <li>Built <b>SaralAI</b> during an internal Hackathon — a complex AI-powered accessibility tool.</li>
             </ul>
           </div>
           <div class="exp-item">
             <strong>Independent Builder</strong>
             <span class="date">Full Stack Developer</span> <span style="font-size:13px; color:var(--muted); margin-left: 8px;">2019 – 2024</span>
             <ul>
-              <li>Developed a real-time finance tracker with secure API proxies.</li>
-              <li>Created MAZE VR puzzle game (2nd Prize at CU Project Expo).</li>
-              <li>Built AI/ML models focusing on automation and recognition tasks.</li>
+              <li>Developed a real-time finance tracker using <span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">Cloudflare Workers</span> for secure API proxies.</li>
+              <li>Created <b>MAZE VR</b> puzzle game, securing the <b>2nd Prize</b> at the CU Project Expo.</li>
+              <li>Built AI/ML models focusing on <b>automation</b> and image recognition pipelines.</li>
             </ul>
           </div>
         </div>
@@ -246,14 +291,14 @@
     <section id="certifications" class="section">
       <h2>Cloud <span>Certifications</span></h2>
       <div class="proj">
-        <!-- Google Cloud Professional Data Engineer -->
+        <!-- GCP Data Engineer -->
         <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
           <img src="https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png" alt="Data Engineer" style="width:90px; height:90px; margin-bottom:16px;">
           <h3 style="font-size:16px; margin-bottom: 16px;">GCP Professional Data Engineer</h3>
           <a class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; margin-top:auto;" href="https://www.credly.com/badges/7e303fc0-d172-4caa-a47f-56d23e74a0f0" target="_blank">Verify</a>
         </article>
         
-        <!-- Google Cloud Professional Cloud Architect -->
+        <!-- GCP Cloud Architect -->
         <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
           <img src="https://images.credly.com/size/340x340/images/71c579e0-51fd-4247-b493-d2fa8167157a/image.png" alt="Cloud Architect" style="width:90px; height:90px; margin-bottom:16px;">
           <h3 style="font-size:16px; margin-bottom: 16px;">GCP Professional Cloud Architect</h3>
@@ -267,9 +312,9 @@
           <a class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; margin-top:auto;" href="https://learn.microsoft.com/api/credentials/share/en-us/KumarSwapnil-1073/B1CA839040334063?sharingId" target="_blank">Verify</a>
         </article>
 
-        <!-- More Certs grouped together to save space -->
-        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-          <h3 style="font-size:18px; color: var(--accent);">+ 3 More Certifications</h3>
+        <!-- 3 More Certs trigger -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer;" onclick="openModal('certsModal')">
+          <h3 style="font-size:18px; color: var(--accent);">+ 3 More Certs &rarr;</h3>
           <p style="font-size:13px; margin: 12px 0;">Professional ML Engineer, Professional Database Eng, Associate Cloud Eng</p>
         </article>
       </div>
@@ -290,7 +335,7 @@
         </div>
         <div class="card" style="text-align: center;">
           <span class="badge">2023</span>
-          <h3 style="margin-top: 12px;">🏆 2nd Prize – CU Project Expo</h3>
+          <h3 style="margin-top: 12px;">🏆 2nd Prize – CU Expo</h3>
           <p>Awarded for MAZE VR — an immersive VR puzzle game built in Unreal Engine.</p>
         </div>
       </div>
@@ -314,8 +359,121 @@
     </footer>
   </div>
 
+  <!-- Profile Image Modal -->
   <div id="photoModal" class="photo-modal" onclick="closeProfile()">
     <img id="modalImage" src="profile.jpg" alt="Profile">
+  </div>
+
+  <!-- Deep Dive Modals -->
+  <div id="saralModal" class="info-modal" onclick="closeModalOutside('saralModal', event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('saralModal')">&times;</button>
+      <div style="margin-bottom:16px;">
+        <span class="badge">React</span>
+        <span class="badge">Gemini API</span>
+        <span class="badge">Workers</span>
+        <span class="badge">Firebase</span>
+      </div>
+      <h2 style="margin-bottom:12px; font-size: 26px; text-align: left;">SaralAI <span style="color:var(--muted); font-size:18px;">— Accessibility Assistant</span></h2>
+      <p style="color:var(--text); margin-bottom: 24px;">An AI-powered reading assistant for ADHD and Dyslexia. Built during the Accenture Hackathon, it simplifies complex web content into easily digestible formats.</p>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Key Technical Features:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li><b>Dual Delivery Model:</b> Built as both a Chrome Extension and a Progressive Web App (PWA).</li>
+        <li><b>AI Integration:</b> Connects to Google Gemini API utilizing a robust multi-model fallback chain for high uptime processing.</li>
+        <li><b>Serverless Backend:</b> Cloudflare Workers deployed to handle CORS routing and AI resilience logic.</li>
+        <li><b>Isolation:</b> Uses Shadow DOM to prevent any CSS style conflicts with host pages.</li>
+        <li><b>Accessibility:</b> Includes focus trapping, text-to-speech capabilities, and real-time translation across 12+ Indian languages.</li>
+      </ul>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Impact:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li>Successfully addresses accessibility gaps for visually impaired and neurodivergent users.</li>
+        <li>Demonstrates complete multi-stack engineering delivered efficiently within a tight hackathon timeline.</li>
+      </ul>
+      <a class="btn" href="http://saral-ai-web.pages.dev/" target="_blank">View Live App &rarr;</a>
+    </div>
+  </div>
+
+  <div id="infraModal" class="info-modal" onclick="closeModalOutside('infraModal', event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('infraModal')">&times;</button>
+      <div style="margin-bottom:16px;">
+        <span class="badge">Python</span>
+        <span class="badge">AWS API (Boto3)</span>
+        <span class="badge">Bash</span>
+      </div>
+      <h2 style="margin-bottom:12px; font-size: 26px; text-align: left;">Infra Cost Guard <span style="color:var(--muted); font-size:18px;">— Cloud Optimizer</span></h2>
+      <p style="color:var(--text); margin-bottom: 24px;">An automated toolkit engineered to identify idle cloud resources and automatically generate actionable cost-saving reports.</p>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Key Technical Features:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li><b>Resource Auditing:</b> Scans AWS using Python Boto3 to discover idle EBS volumes, stale snapshots, and significantly oversized EC2 instances.</li>
+        <li><b>Ticket Automation:</b> Programmatically auto-opens cost-reduction tickets containing specific action items to optimize infrastructure.</li>
+      </ul>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Impact:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li>Eliminated the necessity for manual resource auditing overhead, heavily reducing operational debt.</li>
+        <li>Provides direct pipelines to infrastructure team cost savings.</li>
+      </ul>
+      <a class="btn" href="https://github.com/decodeswapnil" target="_blank">View Source Code &rarr;</a>
+    </div>
+  </div>
+
+  <div id="finzoModal" class="info-modal" onclick="closeModalOutside('finzoModal', event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('finzoModal')">&times;</button>
+      <div style="margin-bottom:16px;">
+        <span class="badge">JavaScript</span>
+        <span class="badge">Firebase Auth</span>
+        <span class="badge">FMP API</span>
+        <span class="badge">Cloudflare Workers</span>
+      </div>
+      <h2 style="margin-bottom:12px; font-size: 26px; text-align: left;">Finzo <span style="color:var(--muted); font-size:18px;">— Finance Web App</span></h2>
+      <p style="color:var(--text); margin-bottom: 24px;">A full-stack finance web application created for real-time stock market tracking, portfolio management, and advanced investment analysis.</p>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Key Technical Features:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li><b>Authentication:</b> Integrated Firebase Auth for secure user flow, watchlists, and password reset functionalities.</li>
+        <li><b>API Logic Sandbox:</b> Orchestrated Cloudflare Workers as a secure proxy to fetch live Financial Modeling Prep (FMP) and Upstox API data, preventing key exposure.</li>
+        <li><b>Data Visualization:</b> Built responsive, dark-themed interactive charts and dashboard components.</li>
+      </ul>
+      
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Impact:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li>Demonstrates holistic product lifecycle competency from secure database architecting to responsive UX UI execution.</li>
+        <li>Currently production-deployed successfully on Cloudflare Pages.</li>
+      </ul>
+      <a class="btn" href="https://finzo.pages.dev/" target="_blank">View Live App &rarr;</a>
+    </div>
+  </div>
+
+  <div id="certsModal" class="info-modal" onclick="closeModalOutside('certsModal', event)">
+    <div class="modal-content" style="max-width: 800px;">
+      <button class="modal-close" onclick="closeModal('certsModal')">&times;</button>
+      <h2 style="margin-bottom:24px; font-size: 26px; text-align: center;">Additional Certifications</h2>
+      <div class="proj" style="gap: 16px;">
+        <!-- GCP ML Engineer -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; padding: 20px;">
+          <img src="https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png" alt="ML Engineer" style="width:80px; height:80px; margin-bottom:12px;">
+          <h3 style="font-size:14px; margin-bottom: 12px;">Professional ML Engineer</h3>
+          <a class="btn btn-outline" style="font-size: 11px; padding: 4px 10px; margin-top:auto;" href="https://www.credly.com/badges/c87fb4f5-aba6-48b0-9918-d4d8ef0a11fa" target="_blank">Verify</a>
+        </article>
+        <!-- GCP Database Engineer -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; padding: 20px;">
+          <img src="https://images.credly.com/size/340x340/images/275e69a5-33a8-4d9c-bad4-2bdc0dfb7d40/image.png" alt="Database Engineer" style="width:80px; height:80px; margin-bottom:12px;">
+          <h3 style="font-size:14px; margin-bottom: 12px;">Professional Database Engineer</h3>
+          <a class="btn btn-outline" style="font-size: 11px; padding: 4px 10px; margin-top:auto;" href="https://www.credly.com/badges/bf871835-e24b-4285-9106-cae5f0439741" target="_blank">Verify</a>
+        </article>
+        <!-- GCP ACE -->
+        <article class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; padding: 20px;">
+          <img src="https://images.credly.com/size/340x340/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Associate Cloud Engineer" style="width:80px; height:80px; margin-bottom:12px;">
+          <h3 style="font-size:14px; margin-bottom: 12px;">Associate Cloud Engineer</h3>
+          <a class="btn btn-outline" style="font-size: 11px; padding: 4px 10px; margin-top:auto;" href="https://www.credly.com/badges/2941dcb8-95c4-4868-a0a3-670ca03fdd52" target="_blank">Verify</a>
+        </article>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -324,6 +482,12 @@
     function openProfile() { document.getElementById('photoModal').style.display = 'flex'; }
     function closeProfile() { document.getElementById('photoModal').style.display = 'none'; }
     
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = ''; }
+    function closeModalOutside(id, event) { 
+      if(event.target.id === id) { closeModal(id); } 
+    }
+
     function toggleTheme() {
       const isLight = document.documentElement.classList.toggle("light");
       localStorage.setItem("theme", isLight ? "light" : "dark");
@@ -333,6 +497,27 @@
       if (localStorage.getItem("theme") === "light") {
         document.documentElement.classList.add("light");
       }
+
+      // Scroll Reveal Observer
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            scrollObserver.unobserve(entry.target); // Animate only once
+          }
+        });
+      }, { threshold: 0.3, rootMargin: "0px 0px -50px 0px" });
+
+      document.querySelectorAll('.exp-item').forEach(el => scrollObserver.observe(el));
+
+      // Dynamic Card Glow Effect
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
     });
 
     function toggleMobileSheet() {
