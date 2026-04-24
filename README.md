@@ -35,7 +35,7 @@ AI-powered reading assistant designed for users with ADHD and Dyslexia. Simplifi
 - 12+ Indian language text simplification and text-to-speech
 - Specialized UI modes for ADHD (scrollable) and Dyslexia (flashcards)
 
-**Live:** http://saral-ai-web.pages.dev/
+**Live:** https://www.saralai.xyz
 
 ---
 
