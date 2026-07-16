@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   <title>Swapnil Kumar · Portfolio</title>
-  <meta name="description" content="Portfolio of Swapnil Kumar: Cloud & Automation Engineer." />
+  <meta name="description" content="Portfolio of Swapnil Kumar: Cloud & Automation Engineer building SaralAI, FlashLearn, and serverless AI products." />
   <meta name="author" content="Swapnil Kumar" />
   <meta name="theme-color" content="#000000" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='50' fill='%2300A3FF'/%3E%3Ctext x='50' y='58' font-family='monospace' font-weight='800' font-size='40' text-anchor='middle' fill='%23000'%3ESK%3C/text%3E%3C/svg%3E"/>
@@ -89,7 +89,7 @@
     .light .proj .card .badge { border-color: rgba(2, 132, 199, 0.3); background: rgba(2, 132, 199, 0.08); }
     
     .exp-container { border-left: 2px solid var(--card-border); margin-left: 12px; padding-left: 24px; text-align: left; }
-    .exp-item { position: relative; padding-bottom: 40px; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .exp-item { position: relative; padding-bottom: 40px; opacity: 1; transform: translateY(0); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .exp-item.in-view { opacity: 1; transform: translateY(0); }
     .exp-item:last-child { padding-bottom: 0; }
     .exp-item::before { content: ""; position: absolute; width: 14px; height: 14px; background: var(--bg); border: 2px solid var(--muted); border-radius: 50%; left: -32px; top: 4px; transform: scale(0); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.4s; transition-delay: 0.1s; }
@@ -145,6 +145,9 @@
       footer { flex-direction: column; text-align: center; justify-content: center; }
     }
   </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Swapnil Kumar","url":"https://decodeswapnil.github.io/","sameAs":["https://linkedin.com/in/dmtoswapnil","https://github.com/decodeswapnil"],"jobTitle":"Cloud, Automation & AI Product Engineer","worksFor":{"@type":"Organization","name":"Accenture"},"makesOffer":[{"@type":"WebApplication","name":"FlashLearn","url":"https://flashlearn.saralai.xyz/","applicationCategory":"EducationalApplication"},{"@type":"WebApplication","name":"SaralAI","url":"https://saralai.xyz/","applicationCategory":"AccessibilityApplication"}]}
+  </script>
 </head>
 <body>
   <div class="wrap">
@@ -183,7 +186,7 @@
       <img src="profile.jpg" alt="Swapnil" class="profile-lg" onclick="openProfile()">
       <h1>Cloud & Automation <br/><span>Engineer</span></h1>
       <p class="lead">Backed by 6 industry certifications, I fix production issues, automate repetitive work, and build robust software. Currently at Accenture.</p>
-      
+
       <div class="hero-actions">
         <a class="btn" href="#projects">View Projects</a>
         <a class="btn btn-outline" href="./Swapnil_Kumar_Resume.pdf" download>Download Résumé</a>
@@ -230,12 +233,28 @@
       <div class="proj">
         <div class="card">
           <span class="badge">2026</span>
-          <h3>SaralAI</h3>
-          <p>AI-powered reading assistant for ADHD and Dyslexia, supporting 12+ Indian languages via Gemini API.</p>
+          <h3>FlashLearn</h3>
+          <p>Mobile-first PWA that turns markdown into swipeable flashcards with spaced repetition, cloud sync, TTS, and SaralAI-powered follow-ups.</p>
           <div style="margin-bottom: 24px;">
+            <span class="badge">PWA</span>
+            <span class="badge">Vanilla JS</span>
+            <span class="badge">Firebase</span>
+            <span class="badge">SM-2</span>
+            <span class="badge">Sarvam TTS</span>
+          </div>
+          <a class="btn btn-outline" style="width: 100%" href="#" onclick="openModal('flashLearnModal'); return false;">Read Case Study &rarr;</a>
+        </div>
+
+        <div class="card">
+          <span class="badge">2026</span>
+          <h3>SaralAI</h3>
+          <p>AI-powered reading assistant for ADHD and Dyslexia, supporting Indian languages, TTS, PDFs, and contextual Q&A via Gemini API.</p>
+          <div style="margin-bottom: 24px;">
+            <span class="badge">Chrome Extension</span>
             <span class="badge">React</span>
             <span class="badge">Gemini API</span>
             <span class="badge">Workers</span>
+            <span class="badge">Replicate</span>
           </div>
           <a class="btn btn-outline" style="width: 100%" href="#" onclick="openModal('saralModal'); return false;">Read Case Study &rarr;</a>
         </div>
@@ -288,17 +307,17 @@
             <ul>
               <li>Manage and administer <b>Linux systems</b> supporting critical enterprise applications.</li>
               <li>Work across <span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">AWS</span><span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">Azure</span><span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">GCP</span> in scaled multi-cloud enterprise environments.</li>
-              <li><b>Automated operational tasks</b> to drastically reduce manual effort, including log triage, disk usage alerts, and kernel cleanup.</li>
-              <li>Built <b>SaralAI</b> during an internal Hackathon — a complex AI-powered accessibility tool.</li>
+              <li><b>Automated operational tasks</b> to reduce manual effort, including log triage, disk usage alerts, and kernel cleanup.</li>
+              <li>Built <b>SaralAI</b> during an internal hackathon, then expanded it into a web and Chrome extension accessibility product.</li>
             </ul>
           </div>
           <div class="exp-item">
             <strong>Independent Builder</strong>
-            <span class="date">Full Stack Developer</span> <span style="font-size:13px; color:var(--muted); margin-left: 8px;">2019 – 2024</span>
+            <span class="date">Full Stack Developer</span> <span style="font-size:13px; color:var(--muted); margin-left: 8px;">2019 – Present</span>
             <ul>
-              <li>Developed a real-time finance tracker using <span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">Cloudflare Workers</span> for secure API proxies.</li>
+              <li>Ship production apps on <span class="badge" style="margin:0 4px; padding:2px 8px; font-size:11px;">Cloudflare Workers</span>, Firebase, and static/PWA frontends.</li>
+              <li>Built <b>FlashLearn</b>, a markdown flashcard PWA with SM-2 scheduling, Firestore sync, Sarvam TTS, and SaralAI tutoring.</li>
               <li>Created <b>MAZE VR</b> puzzle game, securing the <b>2nd Prize</b> at the CU Project Expo.</li>
-              <li>Built AI/ML models focusing on <b>automation</b> and image recognition pipelines.</li>
             </ul>
           </div>
         </div>
@@ -361,7 +380,7 @@
     <section id="contact" class="section">
       <div class="card" style="text-align:center; border-color: var(--accent); box-shadow: var(--glow);">
         <h2>Let's <span>Connect</span></h2>
-        <p class="lead" style="margin-bottom: 32px;">I'm currently open to new opportunities matching my skills in Cloud, Automation, and Full Stack Development.</p>
+        <p class="lead" style="margin-bottom: 32px;">I'm open to roles where cloud operations, automation, and product engineering meet: platform work, AI tooling, accessibility, and learning products.</p>
         <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
           <a class="btn" href="mailto:dmtoswapnil@gmail.com">Email Me</a>
           <a class="btn btn-outline" href="https://www.linkedin.com/in/dmtoswapnil" target="_blank">LinkedIn</a>
@@ -372,7 +391,7 @@
 
     <footer>
       <small>© <span id="year"></span> Swapnil Kumar</small>
-      <small>Clean styling · Zero dependencies.</small>
+      <small>Static portfolio · SaralAI and FlashLearn focused.</small>
     </footer>
   </div>
 
@@ -386,29 +405,63 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('saralModal')">&times;</button>
       <div style="margin-bottom:16px;">
+        <span class="badge">Chrome Extension</span>
         <span class="badge">React</span>
+        <span class="badge">Vite</span>
         <span class="badge">Gemini API</span>
         <span class="badge">Workers</span>
-        <span class="badge">Firebase</span>
+        <span class="badge">Sarvam TTS</span>
       </div>
       <h2 style="margin-bottom:12px; font-size: 26px; text-align: left;">SaralAI <span style="color:var(--muted); font-size:18px;">— Accessibility Assistant</span></h2>
-      <p style="color:var(--text); margin-bottom: 24px;">An AI-powered reading assistant for ADHD and Dyslexia. Built during the Accenture Hackathon, it simplifies complex web content into easily digestible formats.</p>
+      <p style="color:var(--text); margin-bottom: 24px;">An AI-powered reading assistant for ADHD and dyslexia. It turns dense webpages and PDFs into simpler summaries, spoken explanations, visual insights, and contextual Q&A.</p>
+
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Key Technical Features:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li><b>Dual Product Surface:</b> Ships as a Chrome extension plus a SaralAI web app built with React and Vite.</li>
+        <li><b>Reading Profiles:</b> Provides ADHD and dyslexia modes with simplified structure, wide spacing, and focused presentation.</li>
+        <li><b>Contextual AI:</b> Uses Gemini through Cloudflare Workers for page summaries, Ask AI follow-ups, and language-aware responses.</li>
+        <li><b>Visual Explanations:</b> Generates infographic-style visual insights with a Replicate fallback chain when primary models are unavailable.</li>
+        <li><b>Multilingual Audio:</b> Supports 14 Indian languages with Sarvam AI TTS and native UI language coverage.</li>
+      </ul>
+
+      <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Impact:</h3>
+      <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
+        <li>Connects accessibility, AI summarization, TTS, and browser-extension engineering into one user-facing product.</li>
+        <li>Provides the AI tutoring layer that FlashLearn reuses for contextual card follow-ups.</li>
+      </ul>
+      <a class="btn" href="https://saralai.xyz/" target="_blank">View Live App &rarr;</a>
+    </div>
+  </div>
+
+  <div id="flashLearnModal" class="info-modal" onclick="closeModalOutside('flashLearnModal', event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('flashLearnModal')">&times;</button>
+      <div style="margin-bottom:16px;">
+        <span class="badge">Vanilla JS</span>
+        <span class="badge">PWA</span>
+        <span class="badge">Gemini API</span>
+        <span class="badge">Firebase</span>
+        <span class="badge">SM-2</span>
+        <span class="badge">Sarvam TTS</span>
+      </div>
+      <h2 style="margin-bottom:12px; font-size: 26px; text-align: left;">FlashLearn <span style="color:var(--muted); font-size:18px;">— Markdown Flashcards</span></h2>
+      <p style="color:var(--text); margin-bottom: 24px;">A mobile-first progressive web app that converts markdown notes and AI-generated study guides into swipeable, schedulable flashcards.</p>
       
       <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Key Technical Features:</h3>
       <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
-        <li><b>Dual Delivery Model:</b> Built as both a Chrome Extension and a Progressive Web App (PWA).</li>
-        <li><b>AI Integration:</b> Connects to Google Gemini API utilizing a robust multi-model fallback chain for high uptime processing.</li>
-        <li><b>Serverless Backend:</b> Cloudflare Workers deployed to handle CORS routing and AI resilience logic.</li>
-        <li><b>Isolation:</b> Uses Shadow DOM to prevent any CSS style conflicts with host pages.</li>
-        <li><b>Accessibility:</b> Includes focus trapping, text-to-speech capabilities, and real-time translation across 12+ Indian languages.</li>
+        <li><b>Atomic Card Parser:</b> Converts markdown and <code>::card{type=...}</code> schema into recall, cloze, scenario, interview, QA, and reference cards.</li>
+        <li><b>Real Review Scheduling:</b> Stores ease factor, interval, due date, review count, and rating data for SM-2 spaced repetition.</li>
+        <li><b>Cloud Sync:</b> Uses Firebase Auth and Firestore for documents, progress, custom prompt settings, and shared SaralAI answers.</li>
+        <li><b>Community Library:</b> Lets users make study guides public, import/fork shared documents, and preserve ownership rules.</li>
+        <li><b>AI Study Layer:</b> Uses Cloudflare Workers for Gemini prompt generation, translation, Sarvam TTS, and direct SaralAI follow-ups.</li>
       </ul>
       
       <h3 style="font-size:16px; margin-bottom: 12px; color:var(--heading);">Impact:</h3>
       <ul style="color:var(--muted); margin-bottom:24px; padding-left:20px; font-size:15px; line-height: 1.6;">
-        <li>Successfully addresses accessibility gaps for visually impaired and neurodivergent users.</li>
-        <li>Demonstrates complete multi-stack engineering delivered efficiently within a tight hackathon timeline.</li>
+        <li>Turns long notes into reviewable cards while keeping learning progress portable across sessions.</li>
+        <li>Extends SaralAI from reading assistance into active recall, review, and exam-prep workflows.</li>
       </ul>
-      <a class="btn" href="https://www.saralai.xyz" target="_blank">View Live App &rarr;</a>
+      <a class="btn" href="https://flashlearn.saralai.xyz/" target="_blank">View Live App &rarr;</a>
     </div>
   </div>
 
